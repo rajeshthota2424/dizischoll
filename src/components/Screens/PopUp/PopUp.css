@@ -1,0 +1,70 @@
+.popup{
+    height: 30%;
+    width: 23%;
+    background-color: white;
+    position: absolute;
+    top: 40%;
+    right: 40%;
+
+}
+
+.p-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3762bc;
+}
+
+.bg{
+    border: solid 1px;
+    box-shadow:1px black;
+}
+
+.p-head{
+    color: white;
+    font-size: 20px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.p-para{
+    color: white;
+    margin-top: 5px;
+    font-size: 15px;
+    padding-left: 5px;
+    border: solid 1px black;
+    padding-top: 5px;
+}
+
+.p-para:hover{
+    background-color: cadetblue;
+}
+
+.eye-button{
+    border: none;
+    background-color: white;
+}
+
+.button-bg{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 70px;
+   text-align: right;
+}
+
+.pop-button{
+    background-color: #3762bc;
+    color: white;
+}
+
+.pop-button:hover{
+    background-color: cadetblue;
+    color: black;
+}
+
+.btn-1{
+    margin-right: 4px;
+}
+
+.btn-2{
+    padding-left: 5px;
+}

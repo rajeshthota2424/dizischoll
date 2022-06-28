@@ -1,0 +1,61 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.bday-bg-container{
+    border: solid 2px black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.head-container{
+    border: 1px solid #d6dfe6;
+    
+    border-radius: 1px;
+    
+    overflow: hidden;
+    padding: 0.85714rem;
+    position: relative;
+}
+
+.empty{
+    position: absolute;
+    overflow: hidden;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    direction: ltr;
+}
+
+.item-container{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    line-height: 1.25;
+}
+
+.list{
+    padding: 0.85714rem;
+    background-color: #fff;
+    min-height: 1rem;
+    line-height: 1.25;
+    display: list-item;
+   
+}
+
+.inner-container{
+    background-color: #ffffff;
+    height: 10vh;
+}
+
+.bday-para{
+    color: black;
+    font-size: small;
+    font-family: "Roboto";
+}

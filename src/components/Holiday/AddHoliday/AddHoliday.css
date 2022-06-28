@@ -1,0 +1,102 @@
+
+.add-popup-button{
+    background-color: #3762bc;
+   
+    border: solid 1px black;
+}
+
+.plus-button:hover{
+    background-color: aliceblue;
+}
+
+.span-button{
+    color: white;
+    font-weight: bold;
+   
+}
+
+.span-button:hover{
+    color: black;
+}
+
+.holiday-container{
+    height: 400px;
+    width: 400px;
+}
+
+.plus-button{
+    height: 30px;
+    width: 30px;
+    background-color: #3762bc;
+    
+    border: solid 1px black;
+}
+
+.pop-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3762bc;
+    
+}
+
+.popup{
+    height: 400px;
+    width: 40%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+}
+
+.form-container{
+    padding-top: 30px;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.button-container{
+    display: flex;
+  
+}
+
+.holy-head{
+    color: white;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.cross{
+    font-size: 20px;
+ 
+    border: solid 1px;
+    justify-content: end;
+    color: white;
+}
+
+.cross:hover{
+    background-color: white;
+}
+
+.lable-head{
+    color: dimgray;
+    padding-left: 30px;
+}
+
+.btn-form{
+    background-color: #3762bc;
+}
+.btn-form:hover{
+    background-color: white;
+    color: black;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+}

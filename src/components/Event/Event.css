@@ -1,0 +1,134 @@
+.event-table{
+color: black;
+background-color: brown;
+padding: 20px;
+display: flex;
+}
+
+/* .table_bg{
+    border-collapse: collapse;
+   max-width: 900px;
+   width: 100%;
+    margin: 2rem auto;
+    padding: 10px;
+} */
+
+.table-head{
+    text-align: center;
+    background-color: black;
+    text-align: center;
+    height: 10px;
+
+
+}
+
+table th, table td{
+    border:  1px solid #ddd;
+    padding: 8px;
+}
+
+.eye{
+    color: green;
+}
+
+.edit{
+    color: blue;
+}
+
+.trash{
+    color: red;
+}
+
+
+.all-popup-container{
+    display: flex;
+}
+
+.table-body-container{
+    background-color:rgb(243, 248, 254);
+
+}
+
+.table-body-container:hover{
+    background-color: #ddd;
+}
+
+.body{
+   
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+
+.popup{
+    height: 10%;
+    width: 13%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+
+}
+
+.p-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3762bc;
+}
+
+.bg{
+    border: solid 1px;
+    box-shadow:1px black;
+}
+
+.p-head{
+    color: white;
+    font-size: 20px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.p-para{
+    color: white;
+    margin-top: 5px;
+    font-size: 15px;
+    padding-left: 5px;
+    border: solid 1px black;
+    padding-top: 5px;
+}
+
+.p-para:hover{
+    background-color: cadetblue;
+}
+
+.eye-button{
+    border: none;
+    background-color: white;
+}
+
+.button-bg{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 70px;
+   text-align: right;
+}
+
+.pop-button{
+    background-color: #3762bc;
+    color: white;
+}
+
+.pop-button:hover{
+    background-color: cadetblue;
+    color: black;
+}
+
+.btn-1{
+    margin-right: 4px;
+}
+
+.btn-2{
+    padding-left: 5px;
+}

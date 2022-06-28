@@ -1,0 +1,107 @@
+.plus-button:hover{
+    background-color: aliceblue;
+}
+
+.span-button{
+    color: white;
+    font-weight: bold;
+}
+
+.span-button:hover{
+    color: black;
+}
+
+.plus-button{
+    height: 30px;
+    width: 30px;
+    background-color: #3762bc;
+    border: none;
+    border-radius: 3px;
+}
+
+.pop-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3762bc;
+    
+}
+
+.popup{
+    height: 400px;
+    width: 60%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    border: solid 1px black;
+}
+
+
+.button-container{
+    display: flex;
+  
+}
+
+.holy-head{
+    color: white;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.cross{
+    font-size: 20px;
+    border-radius: 3px;
+    border: solid 1px;
+    justify-content: end;
+    color: white;
+}
+
+.cross:hover{
+    background-color: white;
+}
+
+.lable-head{
+    color: dimgray;
+    padding-left: 30px;
+}
+
+.btn-form{
+    background-color: #3762bc;
+}
+.btn-form:hover{
+    background-color: white;
+}
+
+
+/* .hloday-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 10px;
+} */
+
+
+
+.first-row{
+    display: flex;
+    flex-direction: column;
+}
+
+.lable-heading{
+    color:dimgray;
+    font-size: 15px;
+    font-family: "Roboto";
+}
+
+.br-container{
+
+    flex-direction: row;
+
+}
+
+.jdn{
+    display: flex;
+    flex-direction: column;
+}

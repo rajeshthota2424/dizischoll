@@ -1,0 +1,68 @@
+.move{
+    background-color: aqua;
+    border: solid 2px black;
+}
+
+.scroll-bg{
+    border: solid 2px black;
+    height: 25px;
+    width: 100%;
+    background-image: linear-gradient(to right, #539fe1 0%,#73b1e7 24%,#0a77d5 53%,#539fe1 100%,#87bcea 100%,#539fe1 101%);
+}
+
+.scroll-bg:hover{
+    background-color:#87bcea ;
+}
+
+
+.holiday-bg-container{
+    background-color:  rgb(243, 248, 254);
+    background-size: cover;
+    height: 100vh;
+}
+
+.holiday-head{
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.bottom-head-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-head{
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.span-para{
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.table-container{
+    background-color: white;
+    border: solid 1px rgb(200, 193, 193);
+    padding: 10px;
+    margin: 10px;
+}
+
+.tbl-container{
+    border: solid 1px rgb(251, 250, 250);
+}
+
+.table-body{
+    background-color: rgb(243, 248, 254);
+}
+
+.table-head{
+    background-color: #0a77d5;
+}
+

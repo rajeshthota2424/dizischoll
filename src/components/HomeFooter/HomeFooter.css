@@ -1,0 +1,19 @@
+.footer-container{
+    
+    background-image: linear-gradient(to right, #539fe1 0%,#73b1e7 24%,#0a77d5 53%,#539fe1 100%,#87bcea 100%,#539fe1 101%);
+    height: 10vh;
+}
+
+
+
+.footer-description{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+}

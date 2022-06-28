@@ -1,0 +1,123 @@
+.toolbar{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.25em 0;
+    border-style: solid;
+    border-color: #d6dfe6;
+    border-width: 0;
+    border-radius: 2px;
+  }
+
+  .toolbar-button{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: normal;
+    margin-bottom: 0;
+    text-decoration: none;
+    justify-content: center;
+    min-width: 0;
+    align-items: center;
+    padding: 0;
+    border: 1px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.toolbar-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toolbar-container{
+    cursor: inherit;
+    
+    display: inline-flex;
+    color: white !important;
+    align-items: center;
+   background-color: blue;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.component-icon{
+    font-family: "Alta Icon Font";
+    font-size: 16px;
+   
+    display: inline-block;
+    font-weight: normal;
+   
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    color: #333;
+    text-align: center;
+    box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.oj-button-menu-dropdown-icon:before{
+    content: "\e602";
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.icon{
+    justify-content: center;
+}
+
+
+.img-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .toolbar{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.25em 0;
+    border-style: solid;
+    border-color: #d6dfe6;
+    border-width: 0;
+    border-radius: 2px;
+  }
+
+  .toolbar-button{
+    cursor: inherit;
+    display: flex;
+    display: inline-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.button-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
