@@ -104,7 +104,7 @@ const Holiday = () => {
             <div>
                 <div className='bottom-head-container'>
                     <h1 className='bottom-head'>Manage Holiday</h1>
-                    <p className='span-para'><span className='span-holiday'><AddHoliday/></span>Add Holiday</p>
+                    <p className='span-para'><span className='holiday-pop-up-button'><AddHoliday/></span>Add Holiday</p>
                 </div>
             </div>
             <div className='table-container'>

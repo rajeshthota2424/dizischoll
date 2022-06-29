@@ -17,61 +17,45 @@ const EventPopup = () =>{
     const closePopup = () => {
         setPopup(false)
     }
-    const saveHandle = () =>{
-        setPopup(false)
-    }
-    const cancleHandle = () => {
-        setPopup(false)
-    }
+    // const saveHandle = () =>{
+    //     setPopup(false)
+    // }
+    // const cancleHandle = () => {
+    //     setPopup(false)
+    // }
     
     
     
     return(
     <div>
-        <button className="plus-button"
+        <button className="pls-btn"
         onClick={handleClickOpen}><span className="span-button">+</span></button>
         <div>
         {popup?
-            <div>
-                <div className="popup">
-                <div className="pop-header">
-                    <h1 className="holy-head">Add Holiday</h1>
-                    <h1 className="cross" onClick={closePopup}>X</h1>
-                </div>
-                <div>
-                <div className="jdn">
-                    <div className="first-row">
-                        <div className="br-container">
-                            <label>Event</label> 
-                            <input type='text'/>
-                        </div>
-                    <div className="first-row">
-                        <div className="br-container">
-                            <label>Event</label> 
-                            <input type='text'/>
-                        </div>
+           
+                <div className="pop-up-cnt">
+                    <div className="pop-hea-der">
+                        <h1 className="holy-heading">Add Holiday</h1>
+                        <h1 className="cross-mark" onClick={closePopup}>X</h1>
                     </div>
-                </div>    
-                 {/* <div>
-                    <label className="lable-heading">Holiday</label> <br/>
-                    <input type='text' />
-                </div>
                 <div>
-                    <label className="lable-heading">Event Group</label> <br/>
-                    <input type='text' />
-                </div>    
-                <div>
-                    <label className="lable-heading">Event Location</label> <br/>
-                    <input type='text' />
-                </div>*/}
-                </div>
-                  
+                        <div className="fst-rw">
+                            <label className="label-class">Event</label> <br/>
+                            <input type='text'/>
+                        </div>
+                        <div>
+                            <label className="label-class">Event Group</label> <br/>
+                            <input type='text'/>
+                        </div>
+                        <div>
+                            <label className="label-class">Event Location</label> <br/>
+                            <input type='text'/>
+                        </div>     
                 </div>
                 <div className="button-container">
-                    {/* <button type="submit" className="btn-form" onClick={saveHandle}>Save</button>
-                    <button type="submit" className="btn-form" onClick={cancleHandle}>Cancle</button> */}
+                
                 </div>
-            </div>
+            
         </div>:""}
     </div>
 </div>

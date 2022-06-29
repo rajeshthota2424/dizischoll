@@ -227,41 +227,6 @@
 //     </div>
 //     );
 // }
-
-//  <Popup
-// modal
-// trigger={
-// <button type="button" className="trash-popup-button" >
-// <BsTrash className="trash"/>
-// </button>}>
-// {close => (
-//   <>
-//   <div className='trash-container'>
-//   <div className='trash-heading-container'>
-//     <h1 className='trash-popup-heading'> Delete Event</h1>
-//     <button type="button" className="close " onClick={() => close()} aria-label="Close">
-//     <span aria-hidden="true">&times;</span>
-//     </button>
-//   </div>
-//     <p className='trash-para'>Are you sure you want to Delete The selected Event?</p>
-//     <div className="trash-button">
-//     <button
-//     type="button"
-//     className="trigger-button"
-//     onClick={() => close()}>
-//       YES
-//     </button>
-//   <button
-//     type="button"
-//     className="trigger-button "
-//     onClick={() => close()}>
-//       NO
-//     </button>
-//     </div>
-//   </div>
-//   </>)
-// </Popup> 
-
  
 // export default Event;
 
@@ -269,9 +234,10 @@
 import React, {useEffect, useState} from "react";
 import  axios  from 'axios';
 import _ from 'lodash';
-import { ImEye } from "react-icons/im";
-import {BsTrash} from "react-icons/bs";
-import {BiEdit} from "react-icons/bi";
+// import { ImEye } from "react-icons/im";
+// import {BsTrash} from "react-icons/bs";
+// import {BiEdit} from "react-icons/bi";
+// import Popup from 'reactjs-popup';
 import './Event.css'
 
 const pageSize = 15;
@@ -281,21 +247,14 @@ const EventManagement = () => {
   const [posts,setPosts] = useState();
   const [paginatedPosts, setPaginatedPosts] = useState();
   const [currentPage, setcurrentPage] = useState(1)
-  const [popUp, setPopUp] = useState(false);
-    const handleClickOpen = () => {
-        setPopUp(!popUp);
-    }
-    const closePopup = () => {
-        setPopUp(false)
-    }
-    
+  
   
   
   useEffect(() => {
        axios.get('http://192.168.0.116:8280/mas_EventManagement/1.0/mas_getevents?mas_SchoolUniqueId=5911355945&mas_class=SECOND%20CLASS&mas_section=B&mas_guid=32ce8ac8-cad5-0a4f-dd23-e147bc94f158&mas_requestedFrom=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/102.0.0.0%20Safari/537.36&mas_requestedOn=2022-6-28%2014:30:47&mas_geoLocation=123',
         {
       headers: {
-        Authorization: `Bearer 4f7eb322-50fe-3c77-8912-a516899f6936`
+        Authorization: `Bearer c23cfcf7-f81a-3854-a9a7-8c4706d6876f`
       }
     })
       .then((res) => {console.log(res.data)
@@ -343,42 +302,11 @@ const EventManagement = () => {
                   <tr key = {index} className="table-body-container body">
                     <td className="body">
                     <div className="all-popup-container">
+                      <div className='pop-up-container'>
         
-        <div>
-          <ImEye className="eye"/>
-        </div>
-        <div>
-          <BiEdit className="edit"/>
-        </div>
-        <div>
-            <button onClick={handleClickOpen} className='eye-button'><BsTrash className="trash"/></button>
-            <div >
-            {popUp? 
-                <div >
-                    <div className="popup bg">
-                        <div className="p-header">
-                            <h1 className="p-head">
-                                View Event
-                            </h1>
-                            <h1 className="p-para"
-                            onClick={closePopup}>
-                                X
-                            </h1>
-                        </div>
-                        <div>
-                            <p>Are you sure you want to Delete The selected Event?</p>
-                        </div>
-                        <div className="button-bg">
-                    <button type="submit" onClick={closePopup} className='pop-button btn-1'>Yes</button>
-                    <button type="submit" onClick={closePopup} className='pop-button btn-2'> No</button>
+                      </div>
                     </div>
-                    </div>
-                    
-                </div>: ""}
-            </div>
-        </div>
-</div>
-        </td>
+                    </td>
                     <td className="body">{post.mas_eventname}</td>
                     <td className="body">{post.mas_eventgroup}</td>
                     <td className="body">{post.mas_eventFromDate}</td>

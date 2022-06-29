@@ -30,13 +30,14 @@
 
 .bottom-head-container{
     display: flex;
-    justify-content: space-between;
+    
 }
 
 .bottom-head{
     font-size: 15px;
     font-weight: bold;
     padding-left: 10px;
+    justify-content: flex-start;
 }
 
 .span-para{
@@ -45,6 +46,7 @@
     font-weight: bold;
     padding-right: 10px;
     padding-top: 5px;
+    justify-content: flex-end;
 }
 
 .table-container{
@@ -66,3 +68,10 @@
     background-color: #0a77d5;
 }
 
+.span-holiday:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+}
+
+.holiday-pop-up-button{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+}

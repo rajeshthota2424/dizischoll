@@ -6,7 +6,7 @@
 }
 
 .plus-button:hover{
-    background-color: aliceblue;
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
 }
 
 .span-button{
@@ -17,6 +17,7 @@
 
 .span-button:hover{
     color: black;
+    
 }
 
 .holiday-container{
@@ -92,7 +93,7 @@
     background-color: #3762bc;
 }
 .btn-form:hover{
-    background-color: white;
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
     color: black;
 }
 

@@ -1,48 +1,37 @@
-.plus-button:hover{
-    background-color: aliceblue;
-}
-
-.span-button{
-    color: white;
-    font-weight: bold;
-}
-
-.span-button:hover{
-    color: black;
-}
-
-.plus-button{
-    height: 30px;
-    width: 30px;
+.pls-btn{
     background-color: #3762bc;
-    border: none;
     border-radius: 3px;
 }
 
-.pop-header{
+.pls-btn:hover{
+    background-image: linear-gradient(to right, #539fe1 0%,#73b1e7);
+}
+
+.pop-up-cnt{
+    height: 50%;
+    width: 70%;
+    background-color: whitesmoke;
+    position:absolute;
+    top: 40%;
+    right: 10%;
+
+}
+
+.pop-hea-der{
     display: flex;
-    justify-content: space-between;
     background-color: #3762bc;
-    
+    justify-content: space-between;
 }
 
-.popup{
-    height: 400px;
-    width: 60%;
-    background-color: white;
-    position: absolute;
-    top: 25%;
-    right: 25%;
-    border: solid 1px black;
+.fst-rw{
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    align-self: flex-start !important;
 }
 
-
-.button-container{
-    display: flex;
-  
-}
-
-.holy-head{
+.holy-heading{
     color: white;
     font-size: 25px;
     font-weight: lighter;
@@ -50,58 +39,16 @@
     padding-left: 20px;
 }
 
-.cross{
+.cross-mark{
     font-size: 20px;
-    border-radius: 3px;
+    margin-top: 5px;
     border: solid 1px;
     justify-content: end;
     color: white;
+    border:solid 1px black;
 }
 
-.cross:hover{
-    background-color: white;
-}
-
-.lable-head{
-    color: dimgray;
-    padding-left: 30px;
-}
-
-.btn-form{
-    background-color: #3762bc;
-}
-.btn-form:hover{
-    background-color: white;
-}
-
-
-/* .hloday-container{
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    padding-top: 10px;
-} */
-
-
-
-.first-row{
-    display: flex;
-    flex-direction: column;
-}
-
-.lable-heading{
-    color:dimgray;
-    font-size: 15px;
-    font-family: "Roboto";
-}
-
-.br-container{
-
-    flex-direction: row;
-
-}
-
-.jdn{
-    display: flex;
-    flex-direction: column;
+.cross-mark:hover{
+    background-image: linear-gradient(to right, #539fe1 0%,#73b1e7);
+    color: black;
 }
