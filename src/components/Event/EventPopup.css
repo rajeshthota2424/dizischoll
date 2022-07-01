@@ -1,4 +1,4 @@
-.pls-btn{
+/* .pls-btn{
     background-color: #3762bc;
     border-radius: 3px;
 }
@@ -51,4 +51,143 @@
 .cross-mark:hover{
     background-image: linear-gradient(to right, #539fe1 0%,#73b1e7);
     color: black;
+} */
+
+* {
+    
+    box-sizing: border-box;
+}
+
+.add-event-heading-container{
+    background-color: rgb(245, 243, 243);
+    width: 65vw;
+    height: 50vh;
+    margin-top: 120px !important;
+    margin-bottom: 0px;
+    border: solid 1px black;
+}
+
+.add-event-span-plus-button{
+    border: solid 1px black;
+    border-radius: 3px;
+    background-color: #3762bc;
+    height: 28px;
+    width: 25px;
+}
+
+.add-event-span-plus-button:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+}
+
+.add-event-span-button{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.add-event-span-button:hover{
+    color: black;
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%)    
+}
+
+.add-event-event-paragraph{
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.add-event-input-type-text{
+    
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+    max-width: 18em;
+    min-width: 8em;
+    width: 100%;
+}
+
+.add-event-top-container-flex{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+  width: 100;
+   
+    
+}
+
+.label-add-event-pop-up-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.add-event-inner-container-flex{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.flex-items-container{
+    width: 50%;
+    box-sizing: border-box;
+  
+    
+}
+
+
+/* .add-event-width{
+    width: 33.3333333333%;
+    padding-top: 10px;
+}
+
+.add-event-padding{
+    padding-left: 10px;
+} */
+.add-event-lable-event{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.add-event-lable{
+    float: left;
+    color: #666;
+}
+
+.lable-font-size-color{
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+}
+
+.add-event-save-trigger-button{
+    background-color: #177ed7;
+    color: white;
+    border: solid 1px black;
+    margin: 5px;
+}
+
+.add-event-cancle-trigger-button{
+    background-color: #177ed7;
+    color: white;
+    border: solid 1px black;
+    margin: 5px;
+}
+
+.add-event-cancle-trigger-button:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
+    color: black;
+}
+
+.add-event-save-trigger-button:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
+    color: black;
+}
+
+.drop-down-add-event{
+    width: 180px;
+}
+.event-add-event-column-container{
+    display: flex;
+    flex-direction: column;
 }

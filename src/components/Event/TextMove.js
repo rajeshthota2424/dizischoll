@@ -6,6 +6,7 @@ import './TextMove.css'
 import Header from "../Header/Header";
 import HomeFooter from "../HomeFooter/HomeFooter";
 
+
 const TextMove = ({ text }) => {
   const [key, setKey] = useState(1);
 

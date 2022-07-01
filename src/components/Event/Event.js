@@ -267,7 +267,7 @@ const EventManagement = () => {
         "http://192.168.0.116:8280/mas_EventManagement/1.0/mas_getevents?mas_SchoolUniqueId=5911355945&mas_class=SECOND%20CLASS&mas_section=B&mas_guid=32ce8ac8-cad5-0a4f-dd23-e147bc94f158&mas_requestedFrom=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/102.0.0.0%20Safari/537.36&mas_requestedOn=2022-6-28%2014:30:47&mas_geoLocation=123",
         {
           headers: {
-            Authorization: `Bearer 8933938d-b6f7-325b-8ae5-e7abaad000d0`,
+            Authorization: `Bearer 001fe258-ad7b-3154-938e-b8974b8decca`,
           },
         }
       )
@@ -321,15 +321,6 @@ const EventManagement = () => {
           </thead>
           <tbody className="body">
             {paginatedPosts.map((post, index) => {
-              
-
-              
-
-
-
-
-
-
               return (
                 <tr key={index} className="table-body-container body">
                   <td className="body">
@@ -373,10 +364,10 @@ const EventManagement = () => {
                                   <p className="eye-paragraph-event">
                                     Description
                                   </p>
-                                  <textarea
-                                    rows="8"
+                                  <textarea id="w3review" name="w3review" rows="8" cols="50"
+                                    
                                     style={{ "min-width": "100%" }}
-                                    className="eye-paragraph-event"
+                                    className="eye-paragraph-textarea"
                                   >
                                     {post.mas_eventdescription}
                                   </textarea>
@@ -421,7 +412,7 @@ const EventManagement = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer 8933938d-b6f7-325b-8ae5-e7abaad000d0`,
+            Authorization: `Bearer 001fe258-ad7b-3154-938e-b8974b8decca`,
           },
           data: {
             header: {
@@ -464,7 +455,7 @@ const EventManagement = () => {
                                     Event?
                                   </p>
                                 </div>
-                                <div className="trash-bottom-burrons-container">
+                                <div className="add-event-save-cancle-buttons">
                                   <button
                                     type="button"
                                     className="trash-ok-trigger-button-yes"

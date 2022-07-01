@@ -157,18 +157,19 @@ background-color: #177ed7;
 }
 
 .eye-heading-container{
-    background-color: white;
+    background-color: #ddd;
     width: 50vw;
     height: 64vh;
     margin-top: 120px !important;
     margin-bottom: 0px;
+    border: solid 1px black;
 }
 
 .trash-heading-container{
-    background-color: white;
+    background-color: #ddd;
     width: 20vw;
     height: 25vh;
-    
+    border: solid 1px black;
 }
 
 .eye-heading-inner-container{
@@ -229,6 +230,11 @@ background-color: #177ed7;
     background-color: #177ed7;
 }
 
+.add-event-save-cancle-buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* .trigger-button {
     font-size: 16px;
     font-weight: 400;
@@ -247,3 +253,5 @@ background-color: #177ed7;
     justify-content: center;
     height: 100vh;
    } */
+
+  

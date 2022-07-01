@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [username, setUserName] = useState("");
@@ -22,6 +23,7 @@ const Login = () => {
     event.preventDefault();
 
     const userDetails = { username, password };
+    console.log(userDetails)
     const options = {
       method: "POST",
       headers: {
@@ -37,18 +39,20 @@ const Login = () => {
       body: `grant_type=password&username=${username}&password=${password}`,
     };
     const url = "http://192.168.0.116:8280/token";
-    const response = await fetch(url, options);
-    const data = await response.json();
-    console.log(data);
-    console.log(userDetails)
+    try {
+      const response = await fetch(url, options);
+      const tokenObj = await response.json();
+      console.log(tokenObj);
+      Cookies.set("loginToken", tokenObj.access_token, { expires: 1 });
 
-    if (data.access_token !== undefined) {
-      navigate("/allPage");
-    } else
-    {
-      alert("Un Authorizer")
+      if (tokenObj.access_token !== undefined) {
+        navigate("/allPages");
+      }
+    } catch (e) {
+      console.log(e);
     }
-  };
+  }; //what is the use of try catch?? only for developers to know what is error????
+  
 
   return (
     <div className="login-bg-container">
