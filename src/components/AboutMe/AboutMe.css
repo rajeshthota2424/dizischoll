@@ -225,7 +225,7 @@ p {
     text-transform: none;
 }
 
-button{
+.sve-btn{
     font-family: inherit;
     font-size: 100%;
     margin: 0;
@@ -241,10 +241,10 @@ button{
     -webkit-appearance: button;
 }
 
-button:hover{
+/* button:hover{
     background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
     color: black;
-}
+} */
 
 .sve-btn:hover{
     background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;

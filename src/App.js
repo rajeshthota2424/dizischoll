@@ -62,14 +62,14 @@ export default App;
 
 // import React from "react";
 // import './App.css';
+// import PopUp from './components/Screens/PopUp/PopUp'
 
-// import AboutMe from './components/AboutMe/AboutMe';
 
 
 // const App = () => {
 //   return (
 //     <div>
-//       <AboutMe />
+//       <PopUp />
 //     </div>
 //   )
 // }

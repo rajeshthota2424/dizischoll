@@ -12,7 +12,7 @@ const AboutMe = () => {
         axios.get('http://192.168.0.116:8280/mas_getuserprofiles/v1/getUserProfile?mas_userId=ct2%40gmail.com&mas_guid=dfg&mas_requestedOn=hfgh&mas_requestedFrom=gfh&mas_geoLocation=gfh',
          {
        headers: {
-         Authorization: `Bearer c23cfcf7-f81a-3854-a9a7-8c4706d6876f`
+         Authorization: `Bearer 8933938d-b6f7-325b-8ae5-e7abaad000d0`
        }
      })
        .then((res) => {

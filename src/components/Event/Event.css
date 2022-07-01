@@ -27,23 +27,89 @@ table th, table td{
     padding: 8px;
 }
 
-.eye{
-    color: green;
+
+
+.event-popup-buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.edit{
-    color: blue;
+
+
+.trigger-button {
+     margin-left: 6px;
+    background-color: #177ed7;
+    border-width: 0px;
+color: #ffffff;
+     font-size: 15px;
+     border-radius: 3px;
+     margin-right: 3px;
+     height: 30px;
+     width: 50px;
+}
+.popup-heading{
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.para{
+color: black;
+    text-align: left;
+font-size: 12px;
+    padding: 5px;
+    font-family: sans-serif;
+}
+.container{
+border: 2px solid #ffffff;
+background-color: white;
+color: #ffffff;
+width: 20vw;
+ height: 20vh;
+    padding-top: 6px !important;
+margin-right: 10px;
+text-align: end;
+box-shadow: 5px 10px 18px #888888;
+    }
+    
+    
+.heading-container{
+display: flex;
+background-color: #177ed7;
+ margin-top: 0px;
+ padding: 5px;
+ text-align: left;
+    justify-content: space-between;
+    }
+    
+.close-button{
+    width: 25px;
+    background-color: transparent;
+    color: #ffffff;
+    border: solid 1px black;
+}
+    
+.close-button:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
+    color: black;
 }
 
-.trash{
-    color: red;
+.popup-button{
+ background-color: transparent;
+
+
 }
-
-
+        
 .all-popup-container{
     display: flex;
+    flex-direction: row;
 }
-
+/* .popup-container{
+    display: flex;
+    flex-direction: row;
+} */
 .table-body-container{
     background-color:rgb(243, 248, 254);
 
@@ -60,80 +126,124 @@ table th, table td{
     overflow-y: hidden;
 }
 
-
-
-.popup{
-    height: 10%;
-    width: 13%;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-
+.pop-btn-up{
+    border: none;
 }
 
-.p-header{
+.pop-btn-up:hover{
+    background-color: #ddd !important;
+}
+
+.eye{
+    color: green;
+}
+
+.edit{
+    color: blue;
+}
+
+.trash{
+    color: red;
+}
+
+.eye-trigger-button{
+    background-color: transparent;
+    border: none;
+}
+
+.trash-trigger-button{
+    background-color: transparent;
+    border: none;   
+}
+
+.eye-heading-container{
+    background-color: white;
+    width: 50vw;
+    height: 64vh;
+    margin-top: 120px !important;
+    margin-bottom: 0px;
+}
+
+.trash-heading-container{
+    background-color: white;
+    width: 20vw;
+    height: 25vh;
+    
+}
+
+.eye-heading-inner-container{
     display: flex;
     justify-content: space-between;
-    background-color: #3762bc;
+    background-color: #177ed7;
+    height: 40px;
 }
 
-.bg{
-    border: solid 1px;
-    box-shadow:1px black;
+.eye-close-button{
+    background-color: #177ed7;
+    color: white;
 }
 
-.p-head{
+.eye-close-button:hover{
+    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+}
+
+
+.eye-event-heading{
     color: white;
     font-size: 20px;
-    padding-top: 12px;
     padding-left: 10px;
+    padding-top: 10px;
 }
 
-.p-para{
-    color: white;
-    margin-top: 5px;
-    font-size: 15px;
-    padding-left: 5px;
-    border: solid 1px black;
-    padding-top: 5px;
+.eye-paragraph-event{
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
-.p-para:hover{
-    background-color: cadetblue;
-}
-
-.eye-button{
-    border: none;
-    background-color: white;
-    border: none;
-}
-
-.frsrfs{
-    border: none;
-}
-
-.button-bg{
+.eye-ok-trigger-button{
+    text-align: end;
+    background-color: #177ed7;
     display: flex;
     justify-content: flex-end;
-    padding-top: 70px;
-   text-align: right;
 }
 
-.pop-button{
-    background-color: #3762bc;
+
+.trash-bottom-burrons-container{
+
+    display: flex;
+    padding-top: 30px;
+    
+}
+
+.trash-ok-trigger-button-yes{
+    text-align: end;
+    margin: 5px;
+    justify-content: flex-end;
+    background-color: #177ed7;
+}
+
+.trash-ok-trigger-button-No{
+    text-align: end;
+    margin: 5px;
+    justify-content: flex-end;
+    background-color: #177ed7;
+}
+
+/* .trigger-button {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto';
     color: white;
-}
-
-.pop-button:hover{
-    background-color: cadetblue;
-    color: black;
-}
-
-.btn-1{
-    margin-right: 4px;
-}
-
-.btn-2{
-    padding-left: 5px;
-}
+    padding: 8px 15px 8px 15px;
+    margin: 8px;
+    background-color: #7c69e9;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+   }
+   .popup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+   } */
