@@ -9,6 +9,8 @@ import Cookies from "js-cookie";
 const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const[errorMsg,setErrorMsg]  = useState("");
+
   const navigate = useNavigate();
 
   const onUserInputChange = (event) => {
@@ -21,38 +23,40 @@ const Login = () => {
 
   const letMeInHandler = async (event) => {
     event.preventDefault();
-
-    const userDetails = { username, password };
-    console.log(userDetails)
+    
     const options = {
       method: "POST",
       headers: {
         authorization:
-          "Basic " +
-          btoa(
-            "caOy0SPygHWCULpa3GREF02pNCka" +
-              ":" +
-              "06U5o38fXtJEiONfd4EwsM12Qywa"
-          ),
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `grant_type=password&username=${username}&password=${password}`,
-    };
-    const url = "http://192.168.0.116:8280/token";
-    try {
-      const response = await fetch(url, options);
-      const tokenObj = await response.json();
-      console.log(tokenObj);
-      Cookies.set("loginToken", tokenObj.access_token, { expires: 1 });
+        "Basic " +
 
-      if (tokenObj.access_token !== undefined) {
-        navigate("/allPages");
-      }
-    } catch (e) {
-      console.log(e);
+        btoa(
+          "caOy0SPygHWCULpa3GREF02pNCka" +
+              ":" +
+          "06U5o38fXtJEiONfd4EwsM12Qywa"
+        ),
+
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+
+      body: `grant_type=password&username=${username}&password=${password}`,
+
+    };
+
+    const url = "http://192.168.0.116:8280/token";
+    const response = await fetch(url, options);
+    const tokenObj = await response.json();
+    Cookies.set("loginToken", tokenObj.access_token, {expires:1})
+    
+    
+    if (tokenObj.access_token !== undefined) {
+      navigate("/dashboard");
     }
+    else{
+      setErrorMsg('Credentials are not valid please enter correct Credentials')
+  }
+
   }; //what is the use of try catch?? only for developers to know what is error????
-  
 
   return (
     <div className="login-bg-container">
@@ -91,6 +95,7 @@ const Login = () => {
               />
             </div>
           </div>
+          <p className="error-msg">{errorMsg}</p>
           <div>
             <button
               className="btn btn-primary btn-block btn-large let-me-in-button"

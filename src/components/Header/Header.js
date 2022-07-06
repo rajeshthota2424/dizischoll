@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className='nav-bg-container'>
       <nav>
+      <div className='header-flex-container'>
       <div>
         <img src='http://192.168.0.116:8080/css/images/logo.png'
         alt='header logo'
@@ -23,12 +24,12 @@ const Header = () => {
             </a>
           </li>
           <li className="li-container default">
-            <a href="eventManagement" className="anchor-container">
+            <a href="/eventManagement" className="anchor-container">
               <span className="span-container"> Event Management</span>
             </a>
           </li>
           <li className="li-container default">
-            <a href="HolidayManagement" className="anchor-container">
+            <a href="/HolidayManagement" className="anchor-container">
               <span className="span-container"> Holiday Management</span>
             </a>
           </li>
@@ -58,7 +59,9 @@ const Header = () => {
             </a>
           </li>
         </ul>
+        </div>
       </nav>
+      
     </div>
   );
 };

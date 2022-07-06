@@ -57,8 +57,13 @@ h1{color: #04103d;
     font-weight: bold;
 } */
 
+*{
+    box-sizing: border-box;
+}
 .abt-bg-cnt{
     background-color: #cae2ec;
+    background-size: cover;
+    height: 100vh;
 }
 
 .container-fluid{
@@ -106,7 +111,7 @@ h1{
 
 .abt-hed{
     font-size: 25px;
-    padding-top: 5px;
+    padding-top: 20px;
 }
 
 .oj-flex-item{
@@ -122,19 +127,27 @@ h1{
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px){
+    .oj-flex{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
+
 .oj-form{
     padding: 10px !important;
     overflow: hidden;
 }
 
-@media print, screen and (min-width: 768px){
+/* @media print, screen and (min-width: 768px){
 .oj-md-odd-cols-5>.oj-flex>.oj-flex-item:nth-child(odd) {
     -webkit-flex: 0 1 41.6666666667%;
     flex: 0 1 41.6666666667%;
     max-width: 41.6666666667%;
     width: 41.6666666667%;
 }
-}
+} */
 
 .oj-inputtext{
     box-sizing: border-box;
@@ -270,34 +283,108 @@ input{
 .img-tech{
     margin-right: 250px;
 }
-
+/* 
 .lable-status{
-    margin-right: 85px;
+    margin-left: px;
 }
 
 .lable-created{
-    margin-right: 53px;
+    margin-left: 45px;
 }
 
 .lable-class{
-    margin-right: 100px;
+    margin-left: 19px;
 }
 .lable-email{
-    margin-right: 76px;
+    margin-left: 29px;
 }
 
 .lable-school{
-    margin-right: 58px;
+    margin-left: 10px;
 }
 
 .lable-id{
-    margin-right: 26px;
+    margin-left: 45px;
 }
 
 .lable-name{
-    margin-right: 100px;
+    margin-left: 30px;
 }
 
 .input-file{
     margin-left: 40px;
+} */
+
+.name-lastname-firstname-container{
+    display: flex;
+    justify-content: flex-start;
+    text-align:start ;
+    
+}
+
+
+@media screen and (width: 768px){
+    .name-lastname-firstname-container{
+        display: flex;
+        justify-content: column;
+    }
+}
+    
+
+
+.padding-aboutme{
+    padding-top: 20px;
+}
+
+.uniqueid-paragraph{
+    padding-right: 50px;
+}
+.aboutme-subheadings-container{
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* @media screen and (min-width: 768px) {
+    .aboutme-subheadings-container{
+        display: flex;
+        flex-direction: column;
+    } */
+
+.aboutme-subans-container{
+width: 50%;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15px;
+}
+
+.aboutme-save-button{
+    background-color: #3e94de !important;
+    color: white;
+}
+
+.aboutme-save-button:hover{
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
+}
+
+.input-file{
+    text-align: center;
+    display: flex;
+    justify-content: center !important;
+}
+
+.padding-about{
+    padding-top: 10px;
 }

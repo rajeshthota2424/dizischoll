@@ -1,12 +1,24 @@
 
 .add-popup-button{
-    background-color: #3762bc;
+    background-color: #3e94de;
    
     border: solid 1px black;
 }
 
 .plus-button:hover{
-    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 .span-button{
@@ -23,12 +35,13 @@
 .holiday-container{
     height: 400px;
     width: 400px;
+    border: solid 1px black;
 }
 
 .plus-button{
     height: 30px;
     width: 30px;
-    background-color: #3762bc;
+    background-color: #3e94de;
     
     border: solid 1px black;
 }
@@ -36,7 +49,7 @@
 .pop-header{
     display: flex;
     justify-content: space-between;
-    background-color: #3762bc;
+    background-color: #3e94de;
     
 }
 
@@ -47,6 +60,7 @@
     position: absolute;
     top: 25%;
     right: 25%;
+    border: solid 1px black;
 }
 
 .form-container{
@@ -73,15 +87,30 @@
 }
 
 .cross{
-    font-size: 20px;
- 
-    border: solid 1px;
+    font-size: 17px;
+    height: 25px;
+    width: 25px;
+    margin-top: 15px;
+    border: solid 1px black;
     justify-content: end;
     color: white;
+    text-align: center;
 }
 
 .cross:hover{
-    background-color: white;
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 .lable-head{
@@ -90,11 +119,24 @@
 }
 
 .btn-form{
-    background-color: #3762bc;
+    background-color: #3e94de;
+    margin: 5px;
+    color: white;
 }
 .btn-form:hover{
-    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
-    color: black;
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 .button-container{

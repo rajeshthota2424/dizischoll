@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EventPopup from "./EventPopup";
 import { useSpring, animated } from "react-spring";
+
 import Event from "./Event";
 import './TextMove.css'
 import Header from "../Header/Header";
@@ -9,6 +10,7 @@ import HomeFooter from "../HomeFooter/HomeFooter";
 
 const TextMove = ({ text }) => {
   const [key, setKey] = useState(1);
+  const [postedEvent, setPostedEvent]=useState()
 
   const scrolling = useSpring({
     from: { transform: "translate(60%,0)" },
@@ -20,6 +22,14 @@ const TextMove = ({ text }) => {
       setKey(key + 10);
     }
   });
+
+
+
+  const getEventPostRes=(resp)=>{
+    setPostedEvent(resp)
+
+  }
+
 
   return (
     <div className="event-bg-container">
@@ -33,10 +43,12 @@ const TextMove = ({ text }) => {
     </div>
     <div className="move-bottom-container">
         <h1 className="manage-event">Manage Event</h1>
-        <h1 className="add-event span-para"><span className='span-holiday'><EventPopup /></span> Add Event</h1>
+        <h1 className="add-event span-para"><span className='span-holiday'><EventPopup getEventPostRes={getEventPostRes} /></span> Add Event</h1>
     </div>
     <div className="data-table-container">
-        <Event/>
+      <div className="data-table-inner-border">
+        <Event postedEvent={postedEvent}/>
+    </div>
     </div>
     <HomeFooter />
     </div> 

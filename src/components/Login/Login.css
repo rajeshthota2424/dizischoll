@@ -9,8 +9,8 @@
 }
 
 .login-details-container {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   box-shadow: 0 0 36px 7px hsl(0deg 0% 0% / 29%);
   position: absolute;
   top: 50%;
@@ -95,4 +95,9 @@
 }
 .white-text {
   color: #ffffff;
+}
+
+.error-msg{
+  color: red;
+  
 }

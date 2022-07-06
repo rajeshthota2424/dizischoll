@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import DiarySentRightContainer from "./DiarySentRightContainer/DiarySentRightContainer";
 import "./Diary.css";
+import Header from './../Header/Header';
+import HomeFooter from "../HomeFooter/HomeFooter";
 
 // conditional rendering in react:
 // keep in state setShow (compose)/setshow(sent )
@@ -321,6 +323,7 @@ const Diary = () => {
   };
 
   return (
+    <div><Header />
     <div className="diary-bg-container">
       <div className="diary-notifi-heading-container">
         <h1 className="diary-notifi-heading">Notifications</h1>
@@ -350,6 +353,8 @@ const Diary = () => {
         </ul>
         {displayComponent(selectedButton)}
       </div>
+    </div>
+    <HomeFooter />
     </div>
   );
 };

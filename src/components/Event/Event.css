@@ -27,6 +27,10 @@ table th, table td{
     padding: 8px;
 }
 
+.event-management-table-head{
+    background-color: #3e94de;
+    border-bottom: none;
+}
 
 
 .event-popup-buttons-container{
@@ -41,7 +45,7 @@ table th, table td{
 
 .trigger-button {
      margin-left: 6px;
-    background-color: #177ed7;
+    background-color: #3e94de;
     border-width: 0px;
 color: #ffffff;
      font-size: 15px;
@@ -77,7 +81,7 @@ box-shadow: 5px 10px 18px #888888;
     
 .heading-container{
 display: flex;
-background-color: #177ed7;
+background-color: #3e94de;
  margin-top: 0px;
  padding: 5px;
  text-align: left;
@@ -119,8 +123,9 @@ background-color: #177ed7;
     background-color: #ddd;
 }
 
+
 .body{
-   
+    border-top-style: none !important;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -157,8 +162,8 @@ background-color: #177ed7;
 }
 
 .eye-heading-container{
-    background-color: #ddd;
-    width: 50vw;
+    background-color: rgb(245, 243, 243);
+    width: 40vw;
     height: 64vh;
     margin-top: 120px !important;
     margin-bottom: 0px;
@@ -166,7 +171,7 @@ background-color: #177ed7;
 }
 
 .trash-heading-container{
-    background-color: #ddd;
+    background-color: rgb(245, 243, 243);
     width: 20vw;
     height: 25vh;
     border: solid 1px black;
@@ -185,7 +190,19 @@ background-color: #177ed7;
 }
 
 .eye-close-button:hover{
-    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 
@@ -201,12 +218,37 @@ background-color: #177ed7;
     padding-top: 10px;
 }
 
-.eye-ok-trigger-button{
-    text-align: end;
+.eye-paragraph-textarea{
+    padding-left: 10px !important;
+    padding-top: 10px !important;
+    margin: 10px;
+}
+
+.eye-ok-trigger-button-popup{
+  
     background-color: #177ed7;
     display: flex;
-    justify-content: flex-end;
+    margin-right: 10px;
+    margin-left: auto;
+    color: white;
 }
+
+.eye-ok-trigger-button-popup:hover{
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
+    
+    }
 
 
 .trash-bottom-burrons-container{
@@ -221,6 +263,23 @@ background-color: #177ed7;
     margin: 5px;
     justify-content: flex-end;
     background-color: #177ed7;
+    color: white;
+}
+
+.trash-ok-trigger-button-yes:hover{
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 .trash-ok-trigger-button-No{
@@ -228,6 +287,23 @@ background-color: #177ed7;
     margin: 5px;
     justify-content: flex-end;
     background-color: #177ed7;
+    color: white;
+}
+
+.trash-ok-trigger-button-No:hover{
+    background-image: linear-gradient(
+
+        to bottom,
+    
+        #209fc8 0%,
+    
+        #6dd2f3 50%,
+    
+        #209fc8 100%
+    
+      ) !important;
+    
+      color: black;
 }
 
 .add-event-save-cancle-buttons{
@@ -254,4 +330,18 @@ background-color: #177ed7;
     height: 100vh;
    } */
 
-  
+  .table{
+    border-bottom: opx;
+  }
+
+.event-management-table-head-hover:hover {
+    background-color: #d6d7d8;
+    color: black;
+}
+
+.event-management-table-head-hover{
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -75,3 +75,24 @@
 .holiday-pop-up-button{
     background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
 }
+
+.holiday-management-table-head{
+    background-color: #3e94de;
+    font-size: 15px;
+}
+
+.holiday-management-table-heading-hover:hover{
+    background-color: #d6d7d8;
+    color: black;
+}
+
+.holiday-management-table-heading-hover{
+    color: white;
+    font-size: 15px;
+    font-weight:lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-data-holiday{
+    border-top-style: none !important;
+}

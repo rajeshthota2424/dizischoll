@@ -90,14 +90,17 @@ import './Holiday.css';
 import React from 'react';
 import AddHoliday from './AddHoliday/AddHoliday';
 import Header from '../Header/Header';
+import HomeFooter from './../HomeFooter/HomeFooter';
 
 
 
 
 const Holiday = () => {
     return ( 
-        <div className='holiday-bg-container'>
+      <div>
         <Header />
+      
+        <div className='holiday-bg-container'>
             <div>
                 <h1 className='holiday-head'>Current Academic Year Plan: 2018-03-22 To 2019-04-03</h1>
             </div>
@@ -111,15 +114,15 @@ const Holiday = () => {
             <div className='tbe-container'>
             <table className="table table-bordered">
             <thead>
-              <tr className='table-head'>
-                <th>Action</th>
-                <th>Holiday Name</th>
-                <th>Holiday Group</th>
-                <th>Holiday Date</th>
-                <th>Description</th>
+              <tr className='holiday-management-table-head'>
+                <th className='holiday-management-table-heading-hover'>Action</th>
+                <th className='holiday-management-table-heading-hover'>Holiday Name</th>
+                <th className='holiday-management-table-heading-hover'>Holiday Group</th>
+                <th className='holiday-management-table-heading-hover'>Holiday Date</th>
+                <th className='holiday-management-table-heading-hover'>Description</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className='table-data-holiday'>
                 <tr>
                     <td className='table-body'>
                         No data to display
@@ -148,6 +151,8 @@ const Holiday = () => {
 </div>
             </div>
           
+        </div>
+        <HomeFooter />
         </div>
      );
 }
