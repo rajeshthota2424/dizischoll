@@ -1,16 +1,23 @@
 import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Button, Dropdown, Modal } from "react-bootstrap";
-import AddMarksButton from "./AddMarksButton/AddMarksButton";
+import { Button, Modal, OverlayTrigger, Popover } from "react-bootstrap";
+import AddMarksButton from "./AddMarksButton/AddMarks";
 import SaveButton from "./SaveButton/SaveButton";
 import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
-import ExcelUploadButton from "./ExcelUploadButton/ExcelUploadButton";
-
+import ExcelButtonUpload from './ExcelButtonUpload/ExcelButtonUpload'
+import { v4 as uuidv4 } from "uuid";
+import Header from "../Header/Header";
+import HomeFooter from "../HomeFooter/HomeFooter";
 import "./KidMarks.css";
 
 const KidMarks = () => {
   let loginToken = Cookies.get("loginToken");
+  const loggedInUserProfile = JSON.parse(
+    localStorage.getItem("diziUserProfile")
+  );
+  console.log(loggedInUserProfile.mas_userRef);
+
   const [subMaxMarks, setSubMaxMarks] = useState(0);
   const [schoolExamTypes, setSchoolExamTypes] = useState([]);
   const [selectedExamType, setSelectedExamType] = useState();
@@ -23,6 +30,9 @@ const KidMarks = () => {
   const [addMarksArray, setAddMarksArray] = useState([]);
   const [classKidsList, setClassKidsList] = useState([]);
 
+  const [schoolSubjects, setSchoolSubjects] = useState([]);
+  const [addMarksClicked, setAddMarksClicked] = useState(false);
+
   const handleJustClose = () => {
     setAddExamTypeModalShow(false);
   };
@@ -31,20 +41,22 @@ const KidMarks = () => {
 
   const handleClose = async () => {
     setAddExamTypeModalShow(false);
+    //dont give query parameters as hardcode (in string static) add params and in variables
+    //params must be dynamic, that varibale might change==> parameters might change
     const addExamUrl =
       "https://192.168.0.116:8243/mas-examtypes/1.0/insertexamtypes";
     const addExamBody = {
       header: {
-        guid: "",
+        guid: uuidv4(),
         responseOn: "",
         responseFrom: "",
-        userRef: "",
+        userRef: loggedInUserProfile.mas_userRef,
         geoLocation: "anonymous",
         status: "success",
         statuscode: "0",
       },
       body: {
-        mas_SchoolUniqueId: "5911355945",
+        mas_SchoolUniqueId: loggedInUserProfile.mas_schoolUniqueId,
         ExamType: inputExamType,
         Shortcode: inputExamTypeShortcut,
       },
@@ -67,21 +79,24 @@ const KidMarks = () => {
   const handleShow = () => setAddExamTypeModalShow(true);
 
   useEffect(() => {
+    //get exams fetch api
     const getSchoolExamTypes = async () => {
       try {
+        //dont give query parameters as hardcode (in string static) add params and in variables
+        //params must be dynamic, that varibale might change==> parameters might change
         let getSchoolExamTypesUrl =
           "https://192.168.0.116:8243/mas-examtypes/1.0/getexamtypes";
         let bodyData = {
           header: {
-            guid: "",
+            guid: uuidv4(),
             responseOn: "",
             responseFrom: "",
-            userRef: "",
+            userRef: loggedInUserProfile.mas_userRef,
             geoLocation: "",
             status: "success",
             statuscode: "0",
           },
-          body: { mas_SchoolUniqueId: "5911355945" },
+          body: { mas_SchoolUniqueId: loggedInUserProfile.mas_schoolUniqueId },
         };
         let options = {
           method: "POST",
@@ -94,6 +109,7 @@ const KidMarks = () => {
         };
         let response = await fetch(getSchoolExamTypesUrl, options);
         let schoolExamTypesData = await response.json();
+        console.log(schoolExamTypesData);
         setSchoolExamTypes(schoolExamTypesData.body);
       } catch (e) {
         console.log("Failed to fetch schoolExamtypes");
@@ -107,17 +123,10 @@ const KidMarks = () => {
     //getClasskidsList
     const getClasskidsList = async () => {
       try {
+        //dont give query parameters as hardcode (in string static) add params and in variables
+        //params must be dynamic, that varibale might change==> parameters might change
         let getClasskidsListUrl =
           "https://192.168.0.116:8243/mas_getclasskidlist/v1/mas_getclasskidlist?mas_SchoolUniqueId=5911355945&mas_Class=SECOND%20CLASS&mas_Section=B&mas_guid=xyz&mas_geoLocation=xyz&mas_requestedFrom=xyz&mas_requestedOn=anonymous";
-        // let bodyData = {
-        //   mas_SchoolUniqueId: "5911355945",
-        //   mas_Class: "SECOND CLASS",
-        //   mas_Section: "B",
-        //   mas_guid: "xyz",
-        //   mas_requestedOn: "xyz",
-        //   mas_requestedFrom: "xyz",
-        //   mas_geoLocation: "anonymous",
-        // };
         let options = {
           method: "GET",
           headers: {
@@ -135,6 +144,35 @@ const KidMarks = () => {
       }
     };
     getClasskidsList();
+
+    //get examtypes
+
+    const getSchoolSubjects = async () => {
+      try {
+        //dont give query parameters as hardcode (in string static) add params and in variables
+        //params must be dynamic, that varibale might change==> parameters might change
+        let getSchoolSubjectsUrl =
+          "http://192.168.0.116:8280/mas_get_schoolsubjects/1.0/getexamtype?mas_SchoolUniqueId=5911355945&Guid=k&GeoLocation=kjkj&RequestedFrom=kj&RequestedOn=k";
+
+        let options = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${loginToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        };
+        let response = await fetch(getSchoolSubjectsUrl, options);
+        let schoolSubjectsData = await response.json();
+        // setSchoolExamTypes(classKidsListData);
+        console.log(schoolSubjectsData.body.common);
+        setSchoolSubjects(schoolSubjectsData.body.common);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getSchoolSubjects();
   }, []);
 
   // if u use function directly in functional component it getting called infinitely
@@ -182,10 +220,46 @@ const KidMarks = () => {
     setInputExamTypeShortcut(event.target.value);
   };
 
+  //addMarksClickedOrNot getting as argument
+
+  const addMarksClickedOrNot = (clickedOrNot) => {
+    setAddMarksClicked(clickedOrNot);
+  };
+
+  //display red warning text to select examtype
+
+  const displayWarningToSelectExamType = () => {
+    console.log(selectedExamType);
+    console.log(addMarksClicked);
+    if (
+      (selectedExamType === "" ||
+        selectedExamType === undefined ||
+        selectedExamType === "Select Exam Type") &&
+      addMarksClicked === true
+    ) {
+      return (
+        <p style={{ "font-size": "16px" }} className="pt-3 select-exam-type-error">
+          Please Select Exam Type
+        </p>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  //warning popup to enter marks >=0 subMax marks
+  const popoverMarksWarningSubMaxMarks = (
+    <Popover id="popover-positioned-right" className="max-sub-marks-popover">
+      <strong>Enter a number greater than or equal to 0.</strong>
+    </Popover>
+  );
+
   return (
+    <div>
+      <Header />
     <div className="container-fluid kidmarks-container">
-      <div className="row kidmarks-1st-row">
-        <div className="col-4 row-1st-column-containers">
+      <div className="kid-marks-first-row-container">
+        <div className="col-md-4 col-12 row-1st-column-containers pb-3">
           <label
             className="kidmarks-bold-input-labels"
             htmlFor="kidmarksUsername"
@@ -201,7 +275,7 @@ const KidMarks = () => {
             disabled
           />
         </div>
-        <div className="col-4 row-1st-column-containers">
+        <div className="col-md-4 col-12 row-1st-column-containers pb-3">
           <label htmlFor="kidmarksClass">Class</label>
           <input
             className="kidmarks-input kidmarks-input-disabled no-border"
@@ -211,7 +285,7 @@ const KidMarks = () => {
             id="kidmarksClass"
           />
         </div>
-        <div className="col-4 row-1st-column-containers">
+        <div className="col-md-4 col-12 row-1st-column-containers pb-3">
           <label
             className="kidmarks-non-bold-input-labels"
             htmlFor="kidmarksSection"
@@ -228,18 +302,25 @@ const KidMarks = () => {
         </div>
       </div>
       <div className="row kidmarks-2nd-row">
-        <div className="col-4 containers-2nd-row">
+        <div className="col-md-4 col-12 containers-2nd-row pb-4 ps-3">
           <label className="kidmarks-bold-input-labels" htmlFor="sub-max-marks">
             Sub Max Marks
           </label>
-          <input
-            className="kidmarks-input "
-            type="text"
-            id="sub-max-marks"
-            placeholder="Sub Max Marks"
-            value={subMaxMarks > 0 ? subMaxMarks : 0}
-            onChange={subMaxMarksHandler}
-          />
+          <OverlayTrigger
+            trigger="focus"
+            placement="bottom"
+            overlay={popoverMarksWarningSubMaxMarks}
+            arrowOffsetLeft="top"
+          >
+            <input
+              className="kidmarks-input "
+              type="text"
+              id="sub-max-marks"
+              placeholder= 'Sub Max Marks'
+              value={subMaxMarks > 0 ? subMaxMarks : 0}
+              onChange={subMaxMarksHandler}
+            />
+          </OverlayTrigger>
           <button
             className="up-down-buttons-kidmarks"
             type="button"
@@ -255,7 +336,7 @@ const KidMarks = () => {
             <AiOutlineUp />
           </button>
         </div>
-        <div className="col-4 containers-2nd-row">
+        <div className="col-md-4 col-12 containers-2nd-row pb-4">
           <label className="kidmarks-bold-input-labels" htmlFor="exam-type">
             Exam Type
           </label>
@@ -265,7 +346,9 @@ const KidMarks = () => {
             value={selectedExamType}
             onChange={onChangeSelectedExamType}
           >
-            <option value="Select Exam Type">Select Exam Type</option>
+            <option value="Select Exam Type" className="italic">
+              Select Exam Type
+            </option>
             <option value="Annual">Annual</option>
             <option value="Quarterly">Quarterly</option>
             <option value="HalfYearly">HalfYearly</option>
@@ -277,8 +360,8 @@ const KidMarks = () => {
             ))}
           </select>
         </div>
-        <div className="col-3 containers-2nd-row">
-          <Button variant="primary kidmarks-buttons" onClick={handleShow}>
+        <div className="col-md-4 col-12 containers-2nd-row pb-4">
+          <Button className="kidmarks-buttons" onClick={handleShow}>
             Add Exam Type
           </Button>
           {/* modal */}
@@ -287,6 +370,7 @@ const KidMarks = () => {
               className="add-exam-type-modal"
               show={addExamTypeModalShow}
               onHide={handleJustClose}
+              size="md"
             >
               <Modal.Header closeButton>
                 <Modal.Title>Add Exam Type</Modal.Title>
@@ -339,14 +423,17 @@ const KidMarks = () => {
         </div>
       </div>
       <div className="row pt-4 ">
+        <div className="text-danger">{displayWarningToSelectExamType()}</div>
         <div className="add-marks-exel-save-btn-container ms-auto">
           {/* since it is margin you should give to element directly not to container */}
           <AddMarksButton
             addMarksToTable={addMarksToTable}
             classKidsList={classKidsList}
             subMaxMarks={subMaxMarks}
+            selectedExamType={selectedExamType}
+            addMarksClickedOrNot={addMarksClickedOrNot}
           />
-          <ExcelUploadButton />
+          <ExcelButtonUpload />
           <SaveButton
             selectedExamType={selectedExamType}
             addMarksArray={addMarksArray}
@@ -355,57 +442,110 @@ const KidMarks = () => {
           />
         </div>
       </div>
-      <div className="table-in-kidmarks-container mt-2">
-        <table className="table table-bordered border-light">
-          <thead className="table-header">
-            <tr>
-              <th scope="col">Kid Id</th>
-              <th scope="col">Class</th>
-              <th scope="col">Section</th>
-              <th scope="col">Hindi</th>
-              <th scope="col">LabSkills</th>
-              <th scope="col">IT</th>
-              <th scope="col">English</th>
-              <th scope="col">Telugu</th>
-              <th scope="col">Maths</th>
-              <th scope="col">Science</th>
-              <th scope="col">Social</th>
-              <th scope="col">Total</th>
-              <th scope="col">Percentage</th>
-            </tr>
-          </thead>
-          <tbody className="table-body-in-kid-marks">
-            {addMarksArray.map((eachMarksObj) => (
-              <tr>
-                <th scope="row">{eachMarksObj.selectedKidId}</th>
-                <td>SECOND CLASS</td>
-                <td>B</td>
-                <td>{eachMarksObj.addHindi}</td>
-                <td>{eachMarksObj.addLabSkills}</td>
-                <td>{eachMarksObj.addIt}</td>
-                <td>{eachMarksObj.addEnglish}</td>
-                <td>{eachMarksObj.addTelugu}</td>
-                <td>{eachMarksObj.addMaths}</td>
-                <td>{eachMarksObj.addScience}</td>
-                <td>{eachMarksObj.addSocial}</td>
-                <td>
-                  {parseInt(eachMarksObj.addHindi) +
-                    parseInt(eachMarksObj.addLabSkills) +
-                    parseInt(eachMarksObj.addIt) +
-                    parseInt(eachMarksObj.addEnglish) +
-                    parseInt(eachMarksObj.addTelugu) +
-                    parseInt(eachMarksObj.addMaths) +
-                    parseInt(eachMarksObj.addScience) +
-                    parseInt(eachMarksObj.addSocial)}
-                </td>
-                <td>{eachMarksObj.addPercentage}</td>
-              </tr>
-            ))}
-            {/* in plain js we do is element.append but here we do like this
+      <div className="kidsmarks-table-scroll-container">
+        <div className="table-in-kidmarks-container mt-2">
+          <div className="table-responsive kidmarks-table-2nd-container">
+            <table className="table table-bordered border-light">
+              <thead className="table-header">
+                <tr>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Kid Id
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Class
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Section
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Hindi
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    LabSkills
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    IT
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    English
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Telugu
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Maths
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Science
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Social
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Total
+                  </th>
+                  <th scope="col" className="kidmarks-table-headings">
+                    Percentage
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="table-body-in-kid-marks">
+                {addMarksArray.map((eachMarksObj) => (
+                  <tr>
+                    <td scope="row" className="table-body-each-col">
+                      {eachMarksObj.selectedKidId}
+                    </td>
+                    <td>No data to display</td>
+                    <td className="table-body-each-col">SECOND CLASS</td>
+                    <td className="table-body-each-col">B</td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addHindi}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addLabSkills}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addIt}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addEnglish}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addTelugu}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addMaths}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addScience}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addSocial}
+                    </td>
+                    <td className="table-body-each-col">
+                      {parseInt(eachMarksObj.addHindi) +
+                        parseInt(eachMarksObj.addLabSkills) +
+                        parseInt(eachMarksObj.addIt) +
+                        parseInt(eachMarksObj.addEnglish) +
+                        parseInt(eachMarksObj.addTelugu) +
+                        parseInt(eachMarksObj.addMaths) +
+                        parseInt(eachMarksObj.addScience) +
+                        parseInt(eachMarksObj.addSocial)}
+                    </td>
+                    <td className="table-body-each-col">
+                      {eachMarksObj.addPercentage}
+                    </td>
+                  </tr>
+                ))}
+                {/* in plain js we do is element.append but here we do like this
             but here we use state and on update, we get updated data  */}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+    </div>
+    <HomeFooter />
     </div>
   );
 };

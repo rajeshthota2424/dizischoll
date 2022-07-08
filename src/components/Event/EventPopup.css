@@ -67,6 +67,15 @@
     border: solid 1px black;
 }
 
+@media screen and (max-width: 768px){
+    .add-event-heading-container{
+    background-color: rgb(245, 243, 243);
+    width: 70vw !important;
+    height: 80vh !important;
+    margin-right: 220px;
+    }
+}
+
 .add-event-span-plus-button{
     border: solid 2px black;
     border-radius: 3px;
@@ -240,6 +249,46 @@
     flex-direction: column;
 }
 
+/* @media screen and (max-width:786px){
+    .event-add-event-column-container{
+        flex-direction: column;
+    }
+} */
+
+/* @media screen and (max-width: 768px){
+    .add-event-class-section-mobile{
+        display: none;
+    }
+} */
+
+@media screen and (max-width:768px){
+    .add-event-class-section-mobile{
+        display: none;
+    }
+}
+
+@media screen and (min-width:769px) {
+    .mobile-view-for-add-event{
+        display: none;
+    }
+}
+
+.mobile-view-for-add-event{
+    padding-left: 33.333px;
+    margin-top: -50px;
+}
+
+
+
+/* @media screen and (max-width: 768px){
+    .mobile-view-for-add-event{
+        display: block;
+    }
+} */
+
+/* .add-event-class-section-mobile{
+    display: none;
+} */
 .save-cancle-buttons{
     text-align: end !important;
 }

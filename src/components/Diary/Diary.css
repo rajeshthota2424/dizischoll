@@ -1,205 +1,250 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  .diary-bg-container {
-    background-color: #f3f9fe;
-    min-height: 100vh;
-  }
-  .notifications-whole-container {
-    display: flex;
-    flex-direction: row;
-  }
-  .diary-notifi-heading-container {
-    padding: 10px;
-  }
-  .diary-notifi-heading {
-    color: #04103d;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .compose-container {
-    background-color: #ffffff;
-    width: 84%;
-    text-align: left;
-    padding: 12px;
-    border: 1px solid #dfe4e7;
-    margin-right: 10px;
-  }
-  .diary-sent-container {
-    background-color: #ffffff;
-    min-width: 84%;
-    text-align: left;
-    border: 1px solid #dfe4e7;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-    padding: 12px;
-  }
-  .diary-sent-left-allnotifications-container {
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid black;
-    width: 50%;
-  }
-  .diary-sent-right-detailed-notifi-container {
-    width: 50%;
-    border: 1px solid black;
-  }
-  .diary-left-tabs-container {
-    width: 16%;
-    padding-left: 8px;
-  }
-  .diary-left-tab-btns {
-    box-sizing: border-box;
-    background-color: none;
-    width: 100%;
-    color: rgb(5, 114, 206);
-    font-size: 14px;
-    text-align: left;
-    padding-left: 12px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    cursor: pointer;
-  }
-  .diary-sent-btn {
-    margin-top: -24px;
-  }
-  .diary-btns-selected-bg {
-    background-color: #e4f0fa;
-    border-left-style: solid;
-    border-left-width: 3px;
-    border-left-color: rgb(5, 114, 206);
-  }
-  .diary-sent-ul-container {
-    list-style-type: none;
-    padding-left: 0px;
-    cursor: pointer;
-  }
-  
-  .diary-each-notification-container {
-    border: 1px solid black;
-    padding: 12px;
-  }
-  
-  .diary-sent-ul-container :hover {
-    background-color: rgb(238, 238, 238);
-  }
-  
-  .diary-first-letter-container {
-    border: 1.5px solid rgb(0, 150, 224);
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    padding: 3px;
-    padding-left: 4px;
-  }
-  .diary-first-letter {
-    background-color: rgb(0, 150, 224);
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    text-align: center;
-    padding-top: 5px;
-    font-size: 24px;
-    text-align: center;
-    color: #ffffff;
-  }
-  .diary-compose-subhead {
-    padding-bottom: 2px;
-    color: rgb(4, 16, 61);
-    font-size: 15px;
-    font-weight: 700;
-  }
-  .diary-hrline-below-compose {
-    border: 1px solid rgb(51, 51, 51);
-  }
-  .diary-compose-sub-sub-container {
-    padding: 10px;
-  }
-  .diary-sub-sub-headings {
-    color: rgb(51, 51, 51);
-    font-size: 14px;
-    font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top: 5px;
-    margin-bottom: 8px;
-  }
-  .diary-input-and-checkbox-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-  }
-  .diary-allkids-checkbox-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .diary-input-allkids-label {
-    margin-left: 5px;
-    font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  
-  /* width 100% and maxwidth 700px */
-  .diary-compose-inputbox {
-    text-align: left;
-    color: #333;
-    background-color: #fcfdfe;
-    border-style: solid;
-    border-color: #dfe4e7;
-    border-width: 1px;
-    border-radius: 2px;
-    outline: none;
-    height: 40.9531px;
-    width: 100%;
-    width: 700px;
-    margin-right: 10px;
-    font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .diary-text-area {
-    height: 115px !important;
-    outline: none;
-  }
-  .diary-buttons-container {
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
-  }
-  .diary-send-cancel-buttons {
-    height: 32px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    border-radius: 2px !important;
-    border: 1px solid rgb(1, 97, 128);
-    background-color: #177ed7;
-    color: #ffffff;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .diary-each-noti-list-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid black;
-  }
-  .diary-sent-subhead-ans {
-    font-weight: 500;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  .diary-sent-each-flex-item {
-    flex-wrap: wrap;
-  }
+  box-sizing: border-box;
+}
 
-  .diary-send-cancel-buttons:hover{
-    background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%) !important;
-  }
+.diary-bg-container {
+  /* background-color: #f3f9fe;   background color is given direct to dashboard component*/
+  min-height: 100%;
+  background-color:  rgb(243, 248, 254);
+  background-size: cover;
+  height: 100vh;
+}
+.notifications-whole-container {
+  display: flex;
+  flex-direction: row;
+}
+.diary-notifi-heading-container {
+  padding: 10px;
+}
+.diary-notifi-heading {
+  color: #04103d;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.compose-container {
+  background-color: #ffffff;
+  width: 83%;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #dfe4e7;
+  margin-right: 10px;
+}
+.diary-sent-container {
+  background-color: #ffffff;
+  min-width: 83%;
+  text-align: left;
+  border: 1px solid #dfe4e7;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+}
+.diary-sent-left-allnotifications-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 50%;
+  overflow: scroll;
+  height: 80vh;
+}
+.diary-sent-right-detailed-notifi-container {
+  width: 50%;
+}
+.diary-left-tabs-container {
+  width: 17%;
+  padding-left: 8px;
+}
+.diary-left-tab-btns {
+  box-sizing: border-box;
+  background-color: none;
+  width: 100%;
+  color: rgb(5, 114, 206);
+  font-size: 14px;
+  text-align: left;
+  padding-left: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+.diary-sent-btn {
+  margin-top: -24px;
+}
+.diary-btns-selected-bg {
+  background-color: #e4f0fa;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: rgb(5, 114, 206);
+}
+.diary-sent-ul-container {
+  list-style-type: none;
+  padding-left: 0px;
+  cursor: pointer;
+}
+
+.diary-each-notification-container {
+  padding: 12px;
+  margin-top: -2px;
+}
+
+.diary-sent-ul-container :hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.diary-first-letter-container {
+  border: 1.5px solid rgb(0, 150, 224);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 3px;
+  padding-left: 3px;
+  margin-right: 10px;
+}
+.diary-first-letter {
+  background-color: rgb(0, 150, 224);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+.diary-compose-subhead {
+  padding-bottom: 2px;
+  color: rgb(4, 16, 61);
+  font-size: 15px;
+  font-weight: 700;
+}
+.diary-hrline-below-compose {
+  border: 1px solid rgb(51, 51, 51);
+}
+.diary-compose-sub-sub-container {
+  padding: 10px;
+}
+.diary-sub-sub-headings {
+  color: rgb(51, 51, 51);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+.diary-input-and-checkbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.diary-allkids-checkbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.diary-input-allkids-label {
+  margin-left: 5px;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* width 100% and maxwidth 700px */
+.diary-compose-inputbox {
+  text-align: left;
+  color: #333;
+  background-color: #fcfdfe;
+  border-style: solid;
+  border-color: #dfe4e7;
+  border-width: 1px;
+  border-radius: 2px;
+  outline: none;
+  height: 40.9531px;
+  width: 100%;
+  width: 700px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+}
+.diary-text-area {
+  height: 115px !important;
+  outline: none;
+}
+.diary-buttons-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.diary-send-cancel-buttons {
+  margin-left: 2px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 2px !important;
+  border: 1px solid #045fab;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
+}
+.diary-send-cancel-buttons:hover {
+  background-image: linear-gradient(
+    to bottom,
+    #209fc8 0%,
+    #6dd2f3 50%,
+    #209fc8 100%
+  ) !important;
+  color: black;
+}
+.diary-each-noti-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.diary-sent-subhead-ans {
+  font-weight: 500;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.diary-sent-each-flex-item {
+  width: 45%;
+  text-align: left;
+  flex-wrap: wrap;
+}
+.diary-sent-each-notification-hr-line {
+  margin-bottom: -12px;
+  margin-top: 5px;
+  border: 1px solid #dfe4e7;
+}
+.diary-selectedKidsList-container {
+  display: flex;
+  cursor: pointer;
+}
+.diary-kidslist-dropdown-search-container {
+  position: absolute;
+  background-color: #ffffff;
+  width: 700px;
+  border: 1px solid #dfe4e7;
+  padding-left: 8px;
+  font-size: 14px;
+}
+.diary-kidlist-only-dropdown-container {
+  max-height: 185px;
+  overflow-y: scroll;
+}
+.diary-eachkid-name-in-dropdown {
+  margin-top: 4px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.diary-search-in-dropdown {
+  width: 99%;
+  border: 1px solid #dfe4e7;
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}

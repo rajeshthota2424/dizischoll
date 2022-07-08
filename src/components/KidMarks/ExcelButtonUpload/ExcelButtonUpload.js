@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useState } from "react";
-
-import "./ExcelUploadButton.css";
+import './ExcelButtonUpload.css'
 
 const ExcelUploadButton = () => {
   const [excelUploadPopupShow, setExcelUploadPopup] = useState(false);
@@ -33,27 +33,24 @@ const ExcelUploadButton = () => {
             Please Take Reference of Sample File Before Uploading Marks
           </p>
           <button type="button" className="excel-upload-modal-sample-file-btn">
-            Sample File
+            {/* to acess public folder, to link or adress any file in public folder you dont need any path, direct
+            file name will be addressed to public folder path */}
+            <Link
+              className="excel-download-btn-link"
+              to="/markssheet.xlsx"
+              target="blank"
+              download
+            >
+              Sample File
+            </Link>
           </button>
           <br />
           <div className="choose-file-btn-text-container">
-            <button
-              type="button"
-              className="excel-upload-modal-choose-file-btn"
-            >
-              Choose File
-            </button>
-            <p className="excel-upload-modal-no-file-chosen-text">
-              No file chosen
-            </p>
+            <input type="file" className="excel-upload-modal-choose-file-btn" />
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            className="excel-upload-modal-update-marks-btn"
-            variant="primary"
-            onClick={handleClose}
-          >
+          <Button className="excel-upload-button" onClick={handleClose}>
             Update Marks
           </Button>
         </Modal.Footer>

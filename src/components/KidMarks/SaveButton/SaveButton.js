@@ -2,9 +2,12 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { v4 as uuidv4 } from "uuid";
 import "./SaveButton.css";
 
 const SaveButton = (props) => {
+  const loggedInUserProfile = localStorage.getItem("diziUserProfile");
+
   const {
     addMarksArray,
     disableSaveButton,
@@ -12,8 +15,6 @@ const SaveButton = (props) => {
     subMaxMarks,
   } = props;
   const [saveModalshow, setSaveModalShow] = useState(false);
-  console.log(addMarksArray);
-  console.log(selectedExamType);
 
   let loginToken = Cookies.get("loginToken");
 
@@ -27,9 +28,9 @@ const SaveButton = (props) => {
 
         let toAddMarksArray = addMarksArray.map((eachMarksObj) => {
           return {
-            mas_SchoolUniqueId: "5911355945",
+            mas_SchoolUniqueId: loggedInUserProfile.mas_schoolUniqueId,
             mas_actualtotal: null,
-            mas_class: "SECOND CLASS",
+            mas_class: loggedInUserProfile.mas_class,
             mas_examtype: selectedExamType,
             mas_grade: "A",
             mas_kiduserid: eachMarksObj.selectedKidId,
@@ -40,7 +41,7 @@ const SaveButton = (props) => {
             mas_lan5_obtained: eachMarksObj.addLabSkills,
             mas_obtainedtotal: eachMarksObj.addTotal,
             mas_percentage: "NaN %",
-            mas_section: "B",
+            mas_section: loggedInUserProfile.mas_section,
             mas_sub1_obtained: eachMarksObj.addMaths,
             mas_sub2_obtained: eachMarksObj.addScience,
             mas_sub3_obtained: eachMarksObj.addSocial,
@@ -49,7 +50,7 @@ const SaveButton = (props) => {
 
         const bodyData = {
           header: {
-            guid: "a",
+            guid: uuidv4(),
             requestedOn: "b",
             requestedFrom: "c",
             geoLocation: "d",
@@ -80,7 +81,7 @@ const SaveButton = (props) => {
   return (
     <>
       <Button
-        variant="primary save-btn-in-kidmarks"
+        className="save-btn-in-kidmarks"
         onClick={handleShow}
         disabled={disableSaveButton}
       >

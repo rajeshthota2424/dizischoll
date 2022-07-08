@@ -126,14 +126,14 @@ h1{
     
     flex-wrap: wrap;
 }
-
+/* 
 @media screen and (max-width: 768px){
     .oj-flex{
         display: flex;
         flex-direction: column;
         
     }
-}
+} */
 
 .oj-form{
     padding: 10px !important;
@@ -199,7 +199,16 @@ h1{
     font-size: 15px;
     text-transform: none;
     font-weight: bold;
+    padding-right: 60px;
     margin-right: 300px;
+}
+
+@media screen and (max-width:786px) {
+    .tech-img{
+        display: flex;
+        justify-content: flex-start !important;
+
+    }
 }
 
 label{
@@ -281,7 +290,15 @@ input{
 }
 
 .img-tech{
-    margin-right: 250px;
+    margin-right: 350px;
+  
+}
+
+@media  screen and (max-width:786px) {
+    .img-tech{
+        display: flex;
+        justify-content: flex-start !important;
+    }    
 }
 /* 
 .lable-status{
@@ -323,14 +340,27 @@ input{
 }
 
 
-@media screen and (width: 768px){
+@media screen and (max-width: 768px){
     .name-lastname-firstname-container{
-        display: flex;
-        justify-content: column;
+      display: block;
+      
+      margin-bottom: -20px !important;
     }
 }
-    
 
+@media screen and (max-width: 768px){
+    .mobile-view-about-me-container{
+        display: block;
+    }
+}
+
+/* @media screen and (min-width: 768px){
+    .tech-img{
+        height: 100px;
+        width: 100px;
+    }
+    
+} */
 
 .padding-aboutme{
     padding-top: 20px;
@@ -345,12 +375,6 @@ input{
     font-size: 15px;
     font-weight: bold;
 }
-
-/* @media screen and (min-width: 768px) {
-    .aboutme-subheadings-container{
-        display: flex;
-        flex-direction: column;
-    } */
 
 .aboutme-subans-container{
 width: 50%;
@@ -388,3 +412,25 @@ font-size: 15px;
 .padding-about{
     padding-top: 10px;
 }
+
+.img-tech{
+    width: 130px;
+    height: 130px;
+   
+}
+
+@media screen and (max-width: 768px) {
+    .img-tech{
+        width: 90px;
+        height: 90px;
+    }
+    
+}
+
+/* @media screen and (max-width: 768px) {
+    .img-about-me-mobile-view{
+        display: block;
+    justify-content: flex-start;
+    }
+    
+} */

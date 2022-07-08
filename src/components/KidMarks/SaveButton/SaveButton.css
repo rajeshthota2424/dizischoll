@@ -1,12 +1,23 @@
 .save-btn-in-kidmarks {
-    margin-left: 2px !important;
-    height: 32px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    border-radius: 2px !important;
-    border: 1px solid rgb(1, 97, 128);
-    background-color: #177ed7;
-  }
+  margin-left: 2px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 2px !important;
+  border: 1px solid rgb(1, 97, 128);
+  background-image: linear-gradient(to bottom, #177ed7 0%, #177ed7 100%);
+}
+.save-btn-in-kidmarks:hover {
+  background-image: linear-gradient(
+    to bottom,
+    #209fc8 0%,
+    #6dd2f3 50%,
+    #209fc8 100%
+  ) !important;
+  color: black;
+}

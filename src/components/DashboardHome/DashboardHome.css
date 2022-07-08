@@ -1,62 +1,62 @@
 * {
-    box-sizing: border-box;
-  }
-  
+  box-sizing: border-box;
+}
+
+.dbhome-bg-container {
+  background-color: #f3f9fe;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 772px) {
   .dbhome-bg-container {
-    background-color: #f3f9fe;
-    width: 100%;
-    border: 1px solid black;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
-  @media screen and (max-width: 772px) {
-    .dbhome-bg-container {
-      flex-direction: column;
-    }
-  }
+}
+.dbhome-left-container {
+  width: 66.6%;
+  border: 1px solid black;
+  padding-right: 0px !important;
+}
+@media screen and (max-width: 772px) {
   .dbhome-left-container {
-    width: 66.6%;
-    border: 1px solid black;
-    padding-right: 0px !important;
+    width: 100%;
+    min-height: 100vh;
   }
-  @media screen and (max-width: 772px) {
-    .dbhome-left-container {
-      width: 100%;
-      min-height: 100vh;
-    }
-  }
-  
-  /* user !important to override bootstrap styles */
-  
+}
+
+/* user !important to override bootstrap styles */
+
+.dbhome-upper-container {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 772px) {
   .dbhome-upper-container {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    height: 312px;
   }
-  @media screen and (min-width: 772px) {
-    .dbhome-upper-container {
-      flex-direction: row;
-      height: 312px;
-    }
-  }
+}
+.dbhome-lower-container {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 772px) {
   .dbhome-lower-container {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    height: 312px;
   }
-  @media screen and (min-width: 772px) {
-    .dbhome-lower-container {
-      flex-direction: row;
-      height: 312px;
-    }
-  }
-  
+}
+
+.dbhome-right-container {
+  border: 1px solid black;
+  width: 33.3%;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 772px) {
   .dbhome-right-container {
-    border: 1px solid black;
-    width: 33.3%;
-    box-sizing: border-box;
+    width: 100%;
   }
-  @media screen and (max-width: 772px) {
-    .dbhome-right-container {
-      width: 100%;
-    }
-  }
+}

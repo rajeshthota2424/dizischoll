@@ -6,21 +6,18 @@ import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-
-
 const EventPopup = (props) => {
-
-    const {getEventPostRes}=props
+  const { getEventPostRes } = props;
 
   const [eventTo, setEventTo] = useState("All");
   const [showClass, setShowClass] = useState(false);
   const [showSection, setShowSection] = useState(false);
 
   const [eventName, setEventName] = useState("");
-  const [inputRedBorder,setInputRedBorder]=useState(false);
+  const [inputRedBorder, setInputRedBorder] = useState(false);
   const [eventGroup, setEventGroup] = useState("");
   const [eventGroupRedBorder, setEventGroupRedBorder] = useState(false);
-  const [eventLocation, setEventLocation]  = useState("");
+  const [eventLocation, setEventLocation] = useState("");
   const [eventLocationRedBorder, setEventLocationRedBorder] = useState(false);
   const [eventFromDate, setEventFromDate] = useState("");
   const [eventFromDateRedBorder, setEventFromRedBorder] = useState(false);
@@ -29,50 +26,47 @@ const EventPopup = (props) => {
   const [description, setDescription] = useState("");
   const [descriptionredborder, setdescriptionRedBorder] = useState(false);
   // // const [error, setError] = useState(false)
-  
-//   const [response, setResponse] = useState(res)
-//   const [eventTo, setEventTo] = useState();
+
+  //   const [response, setResponse] = useState(res)
+  //   const [eventTo, setEventTo] = useState();
 
   const dropdownHandleEvent = (event) => {
     setEventTo(event.target.value);
     console.log(event.target.value);
   };
 
+  //   const sendResponseToHigherComp=()=>{
+  //     getEventPostRes(response)
+  //   }
 
-
-//   const sendResponseToHigherComp=()=>{
-//     getEventPostRes(response)
-//   }
-
-//   const onChangeEventTo = (event) => {
-//     setEventTo(event.target.value)
-//   }
+  //   const onChangeEventTo = (event) => {
+  //     setEventTo(event.target.value)
+  //   }
 
   const onChangeDescription = (event) => {
-    setDescription(event.target.value)
-  }
+    setDescription(event.target.value);
+  };
 
   const onChangeEventName = (event) => {
     setEventName(event.target.value);
   };
 
   const onChangeEventGroup = (event) => {
-    setEventGroup(event.target.value)
-  }
+    setEventGroup(event.target.value);
+  };
 
   const onChangeEventLocation = (event) => {
-    setEventLocation(event.target.value)
-  }
+    setEventLocation(event.target.value);
+  };
 
   const onChangeEventFromDate = (event) => {
-    setEventFromDate(event.target.value)
-  }
+    setEventFromDate(event.target.value);
+  };
 
   const onChangeEventToDate = (event) => {
-    setEventToDate(event.target.value)
-  }
+    setEventToDate(event.target.value);
+  };
   const loginToken = Cookies.get("loginToken");
-
 
   //get classes
 
@@ -116,7 +110,6 @@ const EventPopup = (props) => {
       .then((res) => {
         console.log(res.data.body);
         setShowSection(res.data.body);
-    
       })
       .catch((err) => {
         console.log(err);
@@ -183,27 +176,37 @@ const EventPopup = (props) => {
           }
         >
           {(close) => {
-            
             const onsaveEventHandler = () => {
-              close() 
-            eventName===""? setInputRedBorder(true): setInputRedBorder(false); 
-            eventGroup === ""? setEventGroupRedBorder(true): setEventGroupRedBorder(false);
-            eventLocation === ""? setEventLocationRedBorder(true): setEventLocationRedBorder(false);
-            eventFromDate === ""? setEventFromRedBorder(true): setEventFromRedBorder(false);
-            eventToDate === ""? setEventToDateRedBorder(true): setEventToDateRedBorder(false);
-            description === ""? setdescriptionRedBorder(true): setdescriptionRedBorder(false);
+              eventName === ""
+                ? setInputRedBorder(true)
+                : setInputRedBorder(false);
+              eventGroup === ""
+                ? setEventGroupRedBorder(true)
+                : setEventGroupRedBorder(false);
+              eventLocation === ""
+                ? setEventLocationRedBorder(true)
+                : setEventLocationRedBorder(false);
+              eventFromDate === ""
+                ? setEventFromRedBorder(true)
+                : setEventFromRedBorder(false);
+              eventToDate === ""
+                ? setEventToDateRedBorder(true)
+                : setEventToDateRedBorder(false);
+              description === ""
+                ? setdescriptionRedBorder(true)
+                : setdescriptionRedBorder(false);
 
-                const postAddEvent=async()=>{ 
-                const response=await fetch("http://192.168.0.116:8280/mas_EventManagement/1.0/mas_postEvent", {
-                method: 'POST',
-                headers: {
-                        Authorization: `Bearer ${loginToken}`,
+              const postAddEvent = async () => {
+                const response = await fetch(
+                  "http://192.168.0.116:8280/mas_EventManagement/1.0/mas_postEvent",
+                  {
+                    method: "POST",
+                    headers: {
+                      Authorization: `Bearer ${loginToken}`,
                       "Content-Type": "application/json",
                       Accept: "application/json",
-                      
                     },
-                    body : JSON.stringify({
-
+                    body: JSON.stringify({
                       header: {
                         guid: "6ebd46fd-2f88-154b-94ee-fd7bff35be2d",
                         requestedOn: "2022-7-4 15:5:19",
@@ -231,43 +234,50 @@ const EventPopup = (props) => {
                         mas_section: "null",
                       },
                     }),
-                  
-              })
+                  }
+                );
 
-              const respJson=await response.json()
-              getEventPostRes(respJson)               
-             
-                
-            
-              }
-              postAddEvent()
-             
+                const respJson = await response.json();
+                getEventPostRes(respJson);
+              };
+              postAddEvent();
             };
 
-            const onBlurInput=()=>{
-             eventName===""? setInputRedBorder(true): setInputRedBorder(false)
-            }
+            const onBlurInput = () => {
+              eventName === ""
+                ? setInputRedBorder(true)
+                : setInputRedBorder(false);
+            };
 
-            const onBlurEventGroup=()=>{
-              eventGroup === ""? setEventGroupRedBorder(true): setEventGroupRedBorder(false)
-            }
+            const onBlurEventGroup = () => {
+              eventGroup === ""
+                ? setEventGroupRedBorder(true)
+                : setEventGroupRedBorder(false);
+            };
 
-            const onBlurEventLocation=()=>{
-              eventLocation === ""? setEventLocationRedBorder(true): setEventLocationRedBorder(false)
-            }
-            
-            const onBlurEventFromDate=()=>{
-              eventFromDate === ""? setEventFromRedBorder(true): setEventFromRedBorder(false)
-            }
+            const onBlurEventLocation = () => {
+              eventLocation === ""
+                ? setEventLocationRedBorder(true)
+                : setEventLocationRedBorder(false);
+            };
 
-            const onBlurEventToDate=()=>{
-              eventToDate === ""? setEventToDateRedBorder(true): setEventToDateRedBorder(false)
-            }
+            const onBlurEventFromDate = () => {
+              eventFromDate === ""
+                ? setEventFromRedBorder(true)
+                : setEventFromRedBorder(false);
+            };
 
-            const onblurDescription= () =>{
-              description === ""? setdescriptionRedBorder(true): setdescriptionRedBorder(false)
-            }
+            const onBlurEventToDate = () => {
+              eventToDate === ""
+                ? setEventToDateRedBorder(true)
+                : setEventToDateRedBorder(false);
+            };
 
+            const onblurDescription = () => {
+              description === ""
+                ? setdescriptionRedBorder(true)
+                : setdescriptionRedBorder(false);
+            };
 
             return (
               <>
@@ -292,7 +302,7 @@ const EventPopup = (props) => {
                           type="text"
                           onChange={onChangeEventName}
                           value={eventName}
-                          className={inputRedBorder&&"invalid"}
+                          className={inputRedBorder && "invalid"}
                           onBlur={onBlurInput}
                         />
                       </div>
@@ -301,12 +311,12 @@ const EventPopup = (props) => {
                           Event Group
                         </label>{" "}
                         <br />
-                        <input type="text" 
-                            onChange={onChangeEventGroup}
-                            value={eventGroup}
-                            className={eventGroupRedBorder&&"invalid"}
+                        <input
+                          type="text"
+                          onChange={onChangeEventGroup}
+                          value={eventGroup}
+                          className={eventGroupRedBorder && "invalid"}
                           onBlur={onBlurEventGroup}
-                            
                         />
                       </div>
 
@@ -315,11 +325,12 @@ const EventPopup = (props) => {
                           Event Location
                         </label>{" "}
                         <br />
-                        <input type="text" 
-                            onChange={onChangeEventLocation}
-                            value={eventLocation}
-                            className={eventLocationRedBorder&&"invalid"}
-                            onBlur={onBlurEventLocation}
+                        <input
+                          type="text"
+                          onChange={onChangeEventLocation}
+                          value={eventLocation}
+                          className={eventLocationRedBorder && "invalid"}
+                          onBlur={onBlurEventLocation}
                         />
                       </div>
                     </div>
@@ -329,10 +340,11 @@ const EventPopup = (props) => {
                           Event From Date
                         </label>{" "}
                         <br />
-                        <input type="datetime-local" 
-                            onChange={onChangeEventFromDate}
-                            value={eventFromDate}
-                            className={eventFromDateRedBorder&&"invalid"}
+                        <input
+                          type="datetime-local"
+                          onChange={onChangeEventFromDate}
+                          value={eventFromDate}
+                          className={eventFromDateRedBorder && "invalid"}
                           onBlur={onBlurEventFromDate}
                         />
                       </div>
@@ -341,10 +353,11 @@ const EventPopup = (props) => {
                           From To Date
                         </label>{" "}
                         <br />
-                        <input type="datetime-local" 
-                            onChange={onChangeEventToDate}
-                            value={eventToDate}
-                            className={eventToDateRedBorder&&"invalid"}
+                        <input
+                          type="datetime-local"
+                          onChange={onChangeEventToDate}
+                          value={eventToDate}
+                          className={eventToDateRedBorder && "invalid"}
                           onBlur={onBlurEventToDate}
                         />
                       </div>
@@ -358,17 +371,20 @@ const EventPopup = (props) => {
                           Description
                         </label>{" "}
                         <br />
-                        <textarea type="text" rows="3" cols="22" 
-                            onChange={onChangeDescription}
-                            value={description}
-                            className={descriptionredborder&&"invalid"}
+                        <textarea
+                          type="text"
+                          rows="3"
+                          cols="22"
+                          onChange={onChangeDescription}
+                          value={description}
+                          className={descriptionredborder && "invalid"}
                           onBlur={onblurDescription}
                         />
                       </div>
                     </div>
-                    <div className="event-add-event-column-container">
+                    <div className="event-add-event-column-container add-event-class-section-mobile">
                       <div className="add-event-width">
-                        <label className="lable-font-size-color" for="students">
+                        <label className="lable-font-size-color" htmlFor="students">
                           Event To
                         </label>{" "}
                         <br />
@@ -408,9 +424,33 @@ const EventPopup = (props) => {
                       Cancel
                     </button>
                   </div>
+
+                  <div className="mobile-view-for-add-event">
+                    <div className="add-event-width">
+                      <label className="lable-font-size-color" htmlFor="students">
+                        Event To
+                      </label>{" "}
+                      <br />
+                      <select
+                        name="students"
+                        id="students"
+                        className="drop-down-add-event"
+                        onChange={dropdownHandleEvent}
+                      >
+                        <option value="All">All</option>
+                        <option value="Class">Class</option>
+                        <option value="Section">Section</option>
+                      </select>
+                    </div>
+                    <div>{getDisplayEventTo()}</div>
+                    <div className="add-event-width">
+                      <input type="checkbox" />
+                      <label className="lable-font-size-color">Notify</label>
+                      {/* <label className="lable-font-size-color">Event</label> <br />
+                                    <input type='text' /> */}
+                    </div>
+                  </div>
                 </div>
-                {/* </div>
-                            </div>  */}
               </>
             );
           }}

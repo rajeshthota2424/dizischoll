@@ -228,15 +228,13 @@ import "./Event.css";
 const pageSize = 15;
 
 const Event = (props) => {
+  const [eventPosted, setEventPosted] = useState();
+  const { postedEvent } = props;
+  console.log(postedEvent);
 
-  const [eventPosted, setEventPosted]=useState()
-  const {postedEvent}=props
-  console.log(postedEvent)
-
-
-  useEffect(()=>{
-    setEventPosted(postedEvent)
-  })
+  useEffect(() => {
+    setEventPosted(postedEvent);
+  });
 
   const [posts, setPosts] = useState();
   const [paginatedPosts, setPaginatedPosts] = useState();
@@ -246,108 +244,110 @@ const Event = (props) => {
   const [showClass, setShowClass] = useState(false);
   const [showSection, setShowSection] = useState(false);
   const [saveEvent, setSaveEvent] = useState();
-    
 
   const dropdownHandleEvent = (event) => {
-      setEventTo(event.target.value)
-      console.log(event.target.value)
-    }
-
-
+    setEventTo(event.target.value);
+    console.log(event.target.value);
+  };
 
   const loginToken = Cookies.get("loginToken");
 
   useEffect(() => {
-    
-
-// get classes
-    axios.get("http://192.168.0.116:8280/mas_KidClasses/1.0/getkidclass?Guid=11&mas_schoolUniqueId=5911355945&GeoLocation=anonymous&RequestedFrom=11&RequestedOn=11",
-    {
-        headers:{
+    // get classes
+    axios
+      .get(
+        "http://192.168.0.116:8280/mas_KidClasses/1.0/getkidclass?Guid=11&mas_schoolUniqueId=5911355945&GeoLocation=anonymous&RequestedFrom=11&RequestedOn=11",
+        {
+          headers: {
             Accept: "application/json",
             Authorization: `Bearer ${loginToken}`,
-        },
-        data:"Guid=11&mas_schoolUniqueId=5911355945&GeoLocation=anonymous&RequestedFrom=11&RequestedOn=11",
-
-    }
-    ).then((res)=>{console.log(res.data.body);
-    setShowClass(res.data.body)})
-    .catch((err) => {
+          },
+          data:
+            "Guid=11&mas_schoolUniqueId=5911355945&GeoLocation=anonymous&RequestedFrom=11&RequestedOn=11",
+        }
+      )
+      .then((res) => {
+        console.log(res.data.body);
+        setShowClass(res.data.body);
+      })
+      .catch((err) => {
         console.log(err);
-    })
-},[saveEvent]);
+      });
+  }, [saveEvent]);
 
-//get  sections
+  //get  sections
 
-useEffect(() => {
-
-
-    axios.get("http://192.168.0.116:8280/mas_KidSection/1.0/getkidSection?mas_schoolUniqueId=5911355945&mas_class=SECOND%20CLASS&Guid=aa&GeoLocation=aa&RequestedFrom=aa&RequestedOn=aa",
-    {
-        headers:{
+  useEffect(() => {
+    axios
+      .get(
+        "http://192.168.0.116:8280/mas_KidSection/1.0/getkidSection?mas_schoolUniqueId=5911355945&mas_class=SECOND%20CLASS&Guid=aa&GeoLocation=aa&RequestedFrom=aa&RequestedOn=aa",
+        {
+          headers: {
             Accept: "application/json",
             Authorization: `Bearer ${loginToken}`,
-        },
-        data:"mas_schoolUniqueId=5911355945&mas_class=SECOND%20CLASS&Guid=aa&GeoLocation=aa&RequestedFrom=aa&RequestedOn=aa",
-
-    }
-    ).then((res)=>{console.log(res.data.body);
-        setShowSection(res.data.body)})
-    .catch((err) => {
+          },
+          data:
+            "mas_schoolUniqueId=5911355945&mas_class=SECOND%20CLASS&Guid=aa&GeoLocation=aa&RequestedFrom=aa&RequestedOn=aa",
+        }
+      )
+      .then((res) => {
+        console.log(res.data.body);
+        setShowSection(res.data.body);
+      })
+      .catch((err) => {
         console.log(err);
-    })
-},[saveEvent]);
+      });
+  }, [saveEvent]);
 
-
-
-const getDisplayEventTo=()=>{
-    switch (eventTo){
-        case "All":
-            return null
-        case "Class":
-            return (<div>
-                <label className="lable-font-size-color">class</label> <br />
-                <select className="drop-down-add-event">
-                    <option>-select class-</option>
-                    {showClass.map((eachClass, index) =>
-                        <option key={index}>{eachClass.mas_class}</option>
-                    )};
-                </select>
-            </div>)    
-        case "Section":
-            return (
-                    (<>
-                    <div>
-                <label className="lable-font-size-color">class</label> <br />
-                <select className="drop-down-add-event">
-                    <option>-select class-</option>
-                    {showClass.map((eachClass, index) =>
-                        <option key={index}>{eachClass.mas_class}</option>
-                    )};
-                </select>
-                </div>
-                <div>
-                <label className="lable-font-size-color">Section</label> <br />
-                <select className="drop-down-add-event">
-                    <option>-select section-</option>
-                    {showSection.map((eachSection, index) =>
-                        <option key={index}>{eachSection.mas_section}</option>
-                    )};
-                    
-                </select>
-                </div> 
-            </>)
-            )  
-         default:
-             
-            
-            
+  const getDisplayEventTo = () => {
+    switch (eventTo) {
+      case "All":
+        return null;
+      case "Class":
+        return (
+          <div>
+            <label className="lable-font-size-color">class</label> <br />
+            <select className="drop-down-add-event">
+              <option>-select class-</option>
+              {showClass.map((eachClass, index) => (
+                <option key={index}>{eachClass.mas_class}</option>
+              ))}
+              ;
+            </select>
+          </div>
+        );
+      case "Section":
+        return (
+          <>
+            <div>
+              <label className="lable-font-size-color">class</label> <br />
+              <select className="drop-down-add-event">
+                <option>-select class-</option>
+                {showClass.map((eachClass, index) => (
+                  <option key={index}>{eachClass.mas_class}</option>
+                ))}
+                ;
+              </select>
+            </div>
+            <div>
+              <label className="lable-font-size-color">Section</label> <br />
+              <select className="drop-down-add-event">
+                <option>-select section-</option>
+                {showSection.map((eachSection, index) => (
+                  <option key={index}>{eachSection.mas_section}</option>
+                ))}
+                ;
+              </select>
+            </div>
+          </>
+        );
+      default:
     }
-}
+  };
 
-console.log(getDisplayEventTo())
+  console.log(getDisplayEventTo());
 
-//table data
+  //table data
 
   useEffect(() => {
     axios
@@ -399,15 +399,25 @@ console.log(getDisplayEventTo())
               <th className="event-management-table-head-hover">Action</th>
               <th className="event-management-table-head-hover">Event Name</th>
               <th className="event-management-table-head-hover">Event Group</th>
-              <th className="event-management-table-head-hover">Event From Date</th>
-              <th className="event-management-table-head-hover">Event To Date</th>
-              <th className="event-management-table-head-hover">Event From Time</th>
-              <th className="event-management-table-head-hover">Event To Time</th>
-              <th className="event-management-table-head-hover">Event Location</th>
+              <th className="event-management-table-head-hover">
+                Event From Date
+              </th>
+              <th className="event-management-table-head-hover">
+                Event To Date
+              </th>
+              <th className="event-management-table-head-hover">
+                Event From Time
+              </th>
+              <th className="event-management-table-head-hover">
+                Event To Time
+              </th>
+              <th className="event-management-table-head-hover">
+                Event Location
+              </th>
               <th className="event-management-table-head-hover">Description</th>
             </tr>
           </thead>
-          <tbody className="body">
+          <tbody className="body event-management-mobile-view-scroll">
             {paginatedPosts.map((post, index) => {
               return (
                 <tr key={index} className="table-body-container body">
@@ -452,11 +462,22 @@ console.log(getDisplayEventTo())
                                   <p className="eye-paragraph-event">
                                     Description
                                   </p>
-                                  <textarea id="w3review" name="w3review" rows="8" cols="50"
-                                 className="eye-paragraph-textarea eye-paragraph-event"
-                                 value={post.mas_eventdescription}
-                                  >
-                                  </textarea>
+                                  <textarea
+                                    id="w3review"
+                                    name="w3review"
+                                    rows="8"
+                                    cols="50"
+                                    className="eye-paragraph-textarea eye-paragraph-event"
+                                    value={post.mas_eventdescription}
+                                  ></textarea>
+                                  <textarea
+                                    id="w3review"
+                                    name="w3review"
+                                    rows="5"
+                                    cols="35"
+                                    className="eye-paragraph-textarea-mobile eye-paragraph-event"
+                                    value={post.mas_eventdescription}
+                                  ></textarea>
                                 </div>
                                 <div>
                                   <button
@@ -473,138 +494,212 @@ console.log(getDisplayEventTo())
                         </Popup>
                       </div>
                       <div>
-                      <Popup
+                        <Popup
                           modal
                           trigger={
                             <button
                               type="button"
                               className="eye-trigger-button"
                             >
-                            <BiEdit className="edit" />
+                              <BiEdit className="edit" />
                             </button>
                           }
                         >
                           {(close) => {
-                    const onsaveEventHandler = () => {
-                    close()
-        axios.post('http://192.168.0.116:8280/mas_EventManagement/1.0/mas_postEvent',
-        {
-            headers: {
-                "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization: `Bearer ${loginToken}`,
-            },
-            data: {
-                header: {
-                   guid:"24c87e65-2329-38d9-a9ec-72042c3e50f2",
-                   requestedOn:"2022-7-4 11:0:53",
-                   requestedFrom:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
-                   geoLocation:"anonymous"},
-            body:{
-        
-                mas_SchoolUniqueId:"5911355945",
-                }
-            }
-        }).then((res) => {
-            console.log(res.data)
-            setSaveEvent(res.data)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-    }
-                           return( <>
-                              <div className="add-event-heading-container">
-                                <div className="eye-heading-inner-container">
-                                  <h1 className="eye-event-heading">
-                                    Edit Event
-                                  </h1>
-                                  <button
-                                    type="button"
-                                    className="close eye-close-button"
-                                    onClick={() => close()}
-                                    aria-label="close"
-                                  >
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                            <div className="label-add-event-pop-up-container">
-                                <div className="event-add-event-column-container">
-                                <div className="add-event-width add-event-padding">
-                                    <label className="lable-font-size-color">Event</label> <br />
-                                    <input type='text' value={post.mas_eventname}></input>
-                                </div>
-                                <div className="add-event-width add-event-padding">
-                                    <label className="lable-font-size-color">Event Group</label> <br />
-                                    <input type='text' value={post.mas_eventgroup}/>
-                                </div>
+                            const onsaveEventHandler = () => {
+                              close();
+                              axios
+                                .post(
+                                  "http://192.168.0.116:8280/mas_EventManagement/1.0/mas_postEvent",
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Accept: "application/json",
+                                      Authorization: `Bearer ${loginToken}`,
+                                    },
+                                    data: {
+                                      header: {
+                                        guid:
+                                          "24c87e65-2329-38d9-a9ec-72042c3e50f2",
+                                        requestedOn: "2022-7-4 11:0:53",
+                                        requestedFrom:
+                                          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+                                        geoLocation: "anonymous",
+                                      },
+                                      body: {
+                                        mas_SchoolUniqueId: "5911355945",
+                                      },
+                                    },
+                                  }
+                                )
+                                .then((res) => {
+                                  console.log(res.data);
+                                  setSaveEvent(res.data);
+                                })
+                                .catch((err) => {
+                                  console.log(err);
+                                });
+                            };
+                            return (
+                              <>
+                                <div className="add-event-heading-container">
+                                  <div className="eye-heading-inner-container">
+                                    <h1 className="eye-event-heading">
+                                      Edit Event
+                                    </h1>
+                                    <button
+                                      type="button"
+                                      className="close eye-close-button"
+                                      onClick={() => close()}
+                                      aria-label="close"
+                                    >
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div className="label-add-event-pop-up-container">
+                                    <div className="event-add-event-column-container">
+                                      <div className="add-event-width add-event-padding">
+                                        <label className="lable-font-size-color">
+                                          Event
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                          type="text"
+                                          value={post.mas_eventname}
+                                        ></input>
+                                      </div>
+                                      <div className="add-event-width add-event-padding">
+                                        <label className="lable-font-size-color">
+                                          Event Group
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                          type="text"
+                                          value={post.mas_eventgroup}
+                                        />
+                                      </div>
 
-                                <div className="add-event-width add-event-padding">
-                                    <label className="lable-font-size-color">Event Location</label> <br />
-                                    <input type='text' value={post.mas_eventVenue}/>
+                                      <div className="add-event-width add-event-padding">
+                                        <label className="lable-font-size-color">
+                                          Event Location
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                          type="text"
+                                          value={post.mas_eventVenue}
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="event-add-event-column-container">
+                                      <div className="add-event-width">
+                                        <label className="lable-font-size-color">
+                                          Event From Date
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                          type="datetime-local"
+                                          value={post.mas_eventFromTime}
+                                        />
+                                      </div>
+                                      <div className="add-event-width">
+                                        <label className="lable-font-size-color">
+                                          From To Date
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                          type="datetime-local"
+                                          value={post.mas_eventToTime}
+                                        />
+                                      </div>
+
+                                      <div className="add-event-width">
+                                        <label className="lable-font-size-color">
+                                          Description
+                                        </label>{" "}
+                                        <br />
+                                        <textarea
+                                          type="text"
+                                          rows="3"
+                                          cols="22"
+                                        >
+                                          {post.mas_eventdescription}
+                                        </textarea>
+                                      </div>
+                                    </div>
+                                    <div className="event-add-event-column-container add-event-class-section-mobile">
+                                      <div className="add-event-width">
+                                        <label
+                                          className="lable-font-size-color"
+                                          for="students"
+                                        >
+                                          Event To
+                                        </label>{" "}
+                                        <br />
+                                        <select
+                                          name="students"
+                                          id="students"
+                                          className="drop-down-add-event"
+                                          onChange={dropdownHandleEvent}
+                                        >
+                                          <option value="All">All</option>
+                                          <option value="Class">Class</option>
+                                          <option value="Section">
+                                            Section
+                                          </option>
+                                        </select>
+                                      </div>
+                                      <div>{getDisplayEventTo()}</div>
+                                      <div className="add-event-width">
+                                        <input type="checkbox" />
+                                        <label className="lable-font-size-color">
+                                          Notify
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="save-cancle-buttons">
+                                    <button
+                                      type="button"
+                                      className="add-event-save-trigger-button"
+                                      onClick={onsaveEventHandler}
+                                    >
+                                      Save
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="add-event-cancle-trigger-button"
+                                      onClick={() => close()}
+                                    >
+                                      Cancel
+                                    </button>
+                                  </div>
+                                  <div className="mobile-view-for-add-event">
+                    <div className="add-event-width">
+                      <label className="lable-font-size-color" for="students">
+                        Event To
+                      </label>{" "}
+                      <br />
+                      <select
+                        name="students"
+                        id="students"
+                        className="drop-down-add-event"
+                        onChange={dropdownHandleEvent}
+                      >
+                        <option value="All">All</option>
+                        <option value="Class">Class</option>
+                        <option value="Section">Section</option>
+                      </select>
+                    </div>
+                    <div>{getDisplayEventTo()}</div>
+                    <div className="add-event-width">
+                      <input type="checkbox" />
+                      <label className="lable-font-size-color">Notify</label>
+                    </div>
+                  </div>
                                 </div>
-                                </div>
-                                <div className="event-add-event-column-container">
-                                <div className="add-event-width">
-                                    <label className="lable-font-size-color">Event From Date</label> <br />
-                                    <input type="datetime-local" value={post.mas_eventFromTime}/>
-                                </div>
-                                <div className="add-event-width">
-                                    <label className="lable-font-size-color">From To Date</label> <br />
-                                    <input type="datetime-local" value={post.mas_eventToTime}/>
-                                </div>
-                                
-                                
-                                <div className="add-event-width">
-                                    <label className="lable-font-size-color">Description</label> <br />
-                                    <textarea type='text' rows='3' cols='22'
-                                    value={post.mas_eventdescription}
-                                    />
-                                </div>
-                                </div>
-                                <div className="event-add-event-column-container">
-                                <div className="add-event-width">
-                                    <label className="lable-font-size-color" for='students'>Event To</label> <br />
-                                    <select name="students" id="students" className="drop-down-add-event"
-                                    onChange={dropdownHandleEvent}>
-                                        <option value="All">All</option>
-                                        <option value="Class">Class</option>
-                                        <option value="Section">Section</option>
-                                        
-                                    </select>
-                                </div>
-                                <div>
-                                    {getDisplayEventTo()
-                                    }
-                                </div>
-                                <div className="add-event-width">
-                                <input type='checkbox' />
-                                <label className="lable-font-size-color">Notify</label>
-                                   
-                                </div>
-                                </div>
-                                
-                                </div>
-                                <div className="savr-cancle-buttons">
-                                  <button
-                                    type="button"
-                                    className="add-event-save-trigger-button"
-                                    onClick={onsaveEventHandler}
-                                  >
-                                    Save
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="add-event-cancle-trigger-button"
-                                    onClick={() => close()}
-                                  >
-                                    Cancel
-                                  </button>
-                                </div>
-                              </div>
-                             
-                            </>
-                          )}}
+                              </>
+                            );
+                          }}
                         </Popup>
                       </div>
 
@@ -621,81 +716,85 @@ console.log(getDisplayEventTo())
                           }
                         >
                           {(close) => {
-
                             //yes event handler
-                            const deleteEventHandle = () => { 
-                              close()
+                            const deleteEventHandle = () => {
+                              close();
 
                               // delete event
-    axios
-      .delete(
-        `http://192.168.0.116:8280/mas_EventManagement/1.0/${post.mas_eventId}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization: `Bearer ${loginToken}`,
-          },
-          data: {
-            header: {
-              guid: "a7e714ca-95c6-a291-1d5d-a35819826c70",
-              requestedOn: "2022-6-30 17:33:14",
-              requestedFrom:
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
-              geoLocation: "anonymous",
-            },
-            body: { mas_SchoolUniqueId: "5911355945" },
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        setDeletedEvent(res.data)
-      });
-  };
+                              axios
+                                .delete(
+                                  `http://192.168.0.116:8280/mas_EventManagement/1.0/${post.mas_eventId}`,
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Accept: "application/json",
+                                      Authorization: `Bearer ${loginToken}`,
+                                    },
+                                    data: {
+                                      header: {
+                                        guid:
+                                          "a7e714ca-95c6-a291-1d5d-a35819826c70",
+                                        requestedOn: "2022-6-30 17:33:14",
+                                        requestedFrom:
+                                          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+                                        geoLocation: "anonymous",
+                                      },
+                                      body: {
+                                        mas_SchoolUniqueId: "5911355945",
+                                      },
+                                    },
+                                  }
+                                )
+                                .then((res) => {
+                                  console.log(res.data);
+                                  setDeletedEvent(res.data);
+                                });
+                            };
+                            return (
+                              <>
+                                <div className="trash-heading-container">
+                                  <div className="trash-heading-container-mobile">
+                                    <div className="eye-heading-inner-container">
+                                      <h1 className="eye-event-heading">
+                                        Delete Event
+                                      </h1>
+                                      <button
+                                        type="button"
+                                        className="close eye-close-button"
+                                        onClick={() => close()}
+                                        aria-label="close"
+                                      >
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
 
-
-                           return ( <>
-                              <div className="trash-heading-container">
-                                <div className="eye-heading-inner-container">
-                                  <h1 className="eye-event-heading">
-                                    View Event
-                                  </h1>
-                                  <button
-                                    type="button"
-                                    className="close eye-close-button"
-                                    onClick={() => close()}
-                                    aria-label="close"
-                                  >
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
+                                    <div>
+                                      <p className="eye-paragraph-event">
+                                        Are you sure you want to Delete The
+                                        selected Event?
+                                      </p>
+                                    </div>
+                                    <div className="add-event-save-cancle-buttons">
+                                      <button
+                                        type="button"
+                                        className="trash-ok-trigger-button-yes"
+                                        onClick={deleteEventHandle}
+                                      >
+                                        Yes
+                                      </button>
+                                      <button
+                                        type="button"
+                                        className="trash-ok-trigger-button-No"
+                                        onClick={() => close()}
+                                      >
+                                        No
+                                      </button>
+                                    </div>
+                                  </div>
                                 </div>
-
-                                <div>
-                                  <p className="eye-paragraph-event">
-                                    Are you sure you want to Delete The selected
-                                    Event?
-                                  </p>
-                                </div>
-                                <div className="add-event-save-cancle-buttons">
-                                  <button
-                                    type="button"
-                                    className="trash-ok-trigger-button-yes"
-                                    onClick={deleteEventHandle}
-                                  >
-                                    Yes
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="trash-ok-trigger-button-No"
-                                    onClick={() => close()}
-                                  >
-                                    No
-                                  </button>
-                                </div>
-                              </div>
-                            </>
-                          )}}
+                              </>
+                            );
+                          }}
                         </Popup>
                       </div>
                     </div>

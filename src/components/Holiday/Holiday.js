@@ -113,7 +113,7 @@ const Holiday = () => {
             <div className='table-container'>
             <div className='tbe-container'>
             <table className="table table-bordered">
-            <thead>
+            <thead style={{width: "100%", overflow: "auto"}}>
               <tr className='holiday-management-table-head'>
                 <th className='holiday-management-table-heading-hover'>Action</th>
                 <th className='holiday-management-table-heading-hover'>Holiday Name</th>

@@ -6,7 +6,7 @@ const KidApprovalsDbHome = (props) => {
   const { sectionDataForDashboard } = props;
   const navigate = useNavigate();
   const onClickKidApprovalsInDbHome = () => {
-    navigate("/dashboard/kidapprovals");
+    navigate("/kidapprovals");
   };
   return (
     <>

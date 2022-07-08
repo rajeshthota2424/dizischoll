@@ -8,6 +8,8 @@ import Holiday from "./components/Holiday/Holiday";
 import AboutMe from "./components/AboutMe/AboutMe";
 import Diary from "./components/Diary/Diary";
 import './App.css'
+import KidMarks from "./components/KidMarks/KidMarks";
+import KidApprovals from "./components/KidApprovals/KidApprovals";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route exact path='/eventManagement' element = {<TextMove/>} />
           <Route exact path = '/HolidayManagement' element = {<Holiday/>} />
           <Route exact path= '/aboutMe' element = {<AboutMe/>} />
+          <Route exact path= '/kidMarks' element = {<KidMarks />} />
+          <Route exact path='/kidApprovals' element = {<KidApprovals />} />
           <Route exact path= '/Dairy' element = {<Diary />} />
         </Routes>
       </BrowserRouter>
