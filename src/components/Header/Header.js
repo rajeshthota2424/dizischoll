@@ -1,68 +1,112 @@
-import React from 'react';
-import './Header.css';
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import Sidebar from "./Sidebar/Sidebar";
+import Toolbar from "./Toolbar/Toolbar";
+import Backdrop from './Backdrop/Backdrop';
 
 
 const Header = () => {
+
+  const[sidebar, setSidebar] = useState(false)
+
+  const toggleSidebar = () =>{
+    setSidebar((prevState) => !prevState)
+  }
+
   return (
-    <div className='nav-bg-container'>
-      <nav>
-      <div className='header-flex-container'>
-      <div>
-        <img src='http://192.168.0.116:8080/css/images/logo.png'
-        alt='header logo'
-        className='header-img' />
-      </div>
-        <ul className="ul-container">
-          <li className="li-container selected">
-            <a href="/dashboard" className="anchor-container">
-              <span className="span-container"> Dashboard</span>
-            </a>
+    // try shortening code using map
+    <div className="dashboard-nav-bg-container">
+      <nav className="dashboard-nav-container">
+        <div>
+          <img
+            alt="db nav logo"
+            className="db-nav-logo"
+            src="http://192.168.0.116:8080/css/images/logo.png"
+          />
+        </div>
+        <ul className="db-nav-ul-list-container">
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/kidStatus" className="anchor-container">
-              <span className="span-container"> Kid Status</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/kidstatus"
+            >
+              Kid Status
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/eventManagement" className="anchor-container">
-              <span className="span-container"> Event Management</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/eventmanagement"
+            >
+              Event Management
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/HolidayManagement" className="anchor-container">
-              <span className="span-container"> Holiday Management</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/holidaymanagement"
+            >
+              Holiday Management
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/kidMarks" className="anchor-container">
-              <span className="span-container"> KidMarks</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/kidmarks"
+            >
+              Kid Marks
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/Attendence" className="anchor-container">
-              <span className="span-container"> Attendance</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/attendance"
+            >
+              Attendance
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/Dairy" className="anchor-container">
-              <span className="span-container"> Diary</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/diary"
+            >
+              Diary
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/kidApprovals" className="anchor-container">
-              <span className="span-container"> Kid Approvals</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/kidapprovals"
+            >
+              Kid Approvals
+            </Link>
           </li>
-          <li className="li-container default">
-            <a href="/aboutMe" className="anchor-container">
-              <span className="span-container"> About Me</span>
-            </a>
+          <li>
+            <Link
+              className="text-decoration-none me-3 db-nav-link-item"
+              to="/aboutme"
+            >
+              About Me
+            </Link>
           </li>
         </ul>
-        </div>
       </nav>
-      
+      <div className="nav-bar-mobile-side-view">
+      <Toolbar openSidebar={toggleSidebar} />
+      <Sidebar Sidebar={sidebar}/>
+      <Backdrop Sidebar={sidebar} closeSidebar={toggleSidebar}/>
+    </div>
     </div>
   );
 };
-export default Header
+
+export default Header;

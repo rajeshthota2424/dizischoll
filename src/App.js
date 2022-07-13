@@ -83,3 +83,26 @@ export default App;
 // }
 
 // export default App;
+
+// import React, {useState} from "react";
+// import Backdrop from "./components/Header/Backdrop/Backdrop";
+// import Sidebar from "./components/Header/Sidebar/Sidebar";
+// import Toolbar from "./components/Header/Toolbar/Toolbar";
+
+// const App = () => {
+
+//   const[sidebar, setSidebar] = useState(false)
+
+//   const toggleSidebar = () =>{
+//     setSidebar((prevState) => !prevState)
+//   }
+//   return ( 
+//     <div>
+//       <Toolbar openSidebar={toggleSidebar} />
+//       <Sidebar Sidebar={sidebar}/>
+//       <Backdrop Sidebar={sidebar} closeSidebar={toggleSidebar}/>
+//     </div>
+//    );
+// }
+ 
+// export default App;

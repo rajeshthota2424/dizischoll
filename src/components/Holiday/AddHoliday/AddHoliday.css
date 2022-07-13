@@ -53,9 +53,9 @@
     
 }
 
-.popup{
-    height: 400px;
-    width: 40%;
+.add-holiday-popup-container{
+    height: 60vh;
+    width: 60vw;
     background-color: white;
     position: absolute;
     top: 25%;
@@ -63,6 +63,15 @@
     border: solid 1px black;
 }
 
+@media  screen and (min-width: 768px) {
+    .add-holiday-popup-container{
+        height: 60vh;
+        width: 45vw;
+        background-color: white;
+        position: absolute;
+
+    }
+}
 .form-container{
     padding-top: 30px;
 }
@@ -142,4 +151,21 @@
 .button-container{
     display: flex;
     justify-content: flex-end;
+}
+
+.add-holiday-label-headings{
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.add-holiday-input-subans{
+    width: 50%;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15px;
+}
+
+.add-holiday-checkbox-container{
+    padding-left: 54px;
 }
