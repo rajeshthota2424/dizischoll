@@ -69,7 +69,7 @@ const Header = () => {
           <li>
             <Link
               className="text-decoration-none me-3 db-nav-link-item"
-              to="/attendance"
+              to="/attendence"
             >
               Attendance
             </Link>

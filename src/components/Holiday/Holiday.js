@@ -131,17 +131,17 @@ const Holiday = () => {
             </tbody>
             </table>
             <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#1" aria-label="Previous">
+  <ul className="pagination">
+    <li className="page-item">
+      <a className="page-link" href="#1" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#2">1</a></li>
+    <li className="page-item"><a class="page-link" href="#2">1</a></li>
    
-    <li class="page-item">
-      <a class="page-link" href="#3" aria-label="Next">
+    <li className="page-item">
+      <a className="page-link" href="#3" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         
       </a>

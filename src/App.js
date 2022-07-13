@@ -9,7 +9,9 @@ import AboutMe from "./components/AboutMe/AboutMe";
 import Diary from "./components/Diary/Diary";
 import './App.css'
 import KidMarks from "./components/KidMarks/KidMarks";
+import KidsStatus from "./components/KidStatus/KidStatus";
 import KidApprovals from "./components/KidApprovals/KidApprovals";
+import Attendence from "./components/Attendence/Attendence";
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
           <Route exact path= '/aboutMe' element = {<AboutMe/>} />
           <Route exact path= '/kidMarks' element = {<KidMarks />} />
           <Route exact path='/kidApprovals' element = {<KidApprovals />} />
-          <Route exact path= '/Dairy' element = {<Diary />} />
+          <Route exact path='/kidStatus' element = {<KidsStatus />} />
+          <Route exact path= '/diary' element = {<Diary />} />
+          <Route exact path='/attendence' element = {<Attendence />} />
         </Routes>
       </BrowserRouter>
      
