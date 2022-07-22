@@ -1,0 +1,137 @@
+.features-bg-container {
+  background-color: #ffffff;
+  padding-top: 20px;
+  min-height: 100vh;
+  margin-top: 50px;
+}
+
+.features-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 27px;
+  margin-right: 27px;
+  padding: 30px;
+}
+.features-heading {
+  text-align: center;
+  color: #333;
+  font-size: 30px;
+  font-weight: 400;
+}
+.features-hr-line {
+  width: 4%;
+  margin-left: 48%;
+  margin-right: 48%;
+  border: 1px solid #129cf3;
+}
+.features-description {
+  color: #333;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 120px;
+  padding-left: 17%;
+  padding-right: 17%;
+  font-family: "Raleway", sans-serif;
+}
+.features-subheadings {
+  text-align: left;
+  color: #343434;
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 0px !important;
+  margin-bottom: 21px;
+
+}
+.features-sub-des {
+  color: #727272;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Raleway", sans-serif;
+  height: 100px;
+  font-weight: 200;
+  margin-bottom: 50px;
+}
+.features-iphone-black-container {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 30%;
+}
+.features-iphone-black {
+  animation: bounceIn;
+  animation-duration: 1s;
+  width: 100%;
+  margin-top: -25px;
+}
+.features-purchase-btn-des-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 100px;
+  background-color: #1a1a1a;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  padding-left: 100px;
+}
+.features-purchase-des-container {
+  text-align: left;
+  width: 65%;
+}
+.features-purchase-des{
+  color: #dfdfdf;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 300;
+}
+.features-purchase-btn-container {
+  padding-left: 0px;
+  width: 30%;
+  text-align: left;
+  margin-left: 50px;
+}
+.features-purchase-btn {
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #129CF3 !important;
+}
+.features-left-text-container {
+  width: 30%;
+  animation: fadeInLeft;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  position: relative;
+  margin-top: 20px;
+
+/* to hide the element before animation starts you should use animation-fill-mode
+other wise before animation element appears, then animation starts, its not good */
+}
+.features-right-text-container {
+  width: 30%;
+  animation: fadeInRight;
+  animation-fill-mode: both;
+  animation-delay: .5s;
+  animation-duration: 1s;
+  position: relative;
+
+}
+.features-icons{
+  color: #129CF3;
+  font-size: 40px;
+  font-weight: 400;
+}
+.border-check{
+  border: 1px solid black;
+}

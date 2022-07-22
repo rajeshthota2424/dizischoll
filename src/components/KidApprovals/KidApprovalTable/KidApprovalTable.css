@@ -1,0 +1,85 @@
+.table{
+
+    border-collapse: collapse;
+
+   width: 1500px;
+
+
+    margin: 2rem auto;
+
+    padding: 10px;
+
+}
+
+@media screen and (max-width: 480px) {
+    .table {
+      width: 40px;
+      overflow-x: scroll;
+    }
+  }
+
+
+
+.table th, table td{
+
+    border:  1px solid #ddd;
+
+    padding: 8px;
+
+}
+
+
+
+
+.table-head{
+
+    text-align: center;
+
+    
+    color: #fff !important;
+
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+    height: 10px;
+
+    
+
+
+}
+
+
+
+.table-head:hover {
+
+    background-color:  gainsboro;
+
+}
+
+
+
+.body{
+
+    flex-wrap: wrap;
+
+}
+
+
+
+.table-bg-contane{
+
+    border: solid 10px black;
+    background-color: #85bbe7;
+
+}
+
+.status-container1{
+    width: 100% !important;
+    }
+    
+    @media screen and (max-width: 400px) {
+        .status-container1 {
+          width: 100%;
+          overflow: scroll;
+        }
+      }

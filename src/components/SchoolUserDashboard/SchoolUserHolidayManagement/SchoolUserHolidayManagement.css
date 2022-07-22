@@ -1,0 +1,18 @@
+.add-academic-year-container{
+    border: solid 1px;
+    margin: 10px;
+    border-radius: 3px;
+    height: 30px;
+    background-color: #0a77d5;
+}
+
+.user-holiday-acadamic-heading{
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+.user-holiday-acadamic-heading:hover{
+    color: black;
+    
+}

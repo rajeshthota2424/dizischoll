@@ -1,0 +1,8 @@
+.tool-bar{
+    
+    color: black;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+}

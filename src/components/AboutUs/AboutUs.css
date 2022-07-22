@@ -1,0 +1,99 @@
+.about-us-bg-container {
+  background-color: #ffffff;
+  padding: 30px;
+  padding-top: 20px !important;
+  padding-right: 60px;
+  min-height: 100vh;
+}
+.about-us-text {
+  text-align: center;
+  color: #333;
+  font-size: 30px;
+  font-weight: 400;
+}
+.about-us-hr-line {
+  width: 4%;
+  margin-left: 48%;
+  margin-right: 48%;
+  border: 1px solid #129cf3;
+}
+.about-us-description {
+  color: #333;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 100px;
+}
+.about-us-iphone-container {
+  /* animated css, without animation-duration, animation wont work*/
+  animation: fadeInLeft;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  /* don't forget to set a duration! */
+  width: 100vw;
+  position: relative;
+}
+.about-us-iphone {
+  width: 72%;
+}
+/* .about-us-why-chose-dizi-text-container {
+  
+} */
+.about-us-why-choose-dizi-text {
+  animation: fadeInRight;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: left;
+  margin-bottom: 20px;
+  position: relative;
+}
+.about-us-why-choose-us-img-text-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.about-us-why-choose-us-text-container {
+  animation: fadeInUp;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 18px;
+  padding-right: 50px;
+}
+.about-us-dizital-subheadings {
+  text-align: left;
+  color: #343434;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.about-us-dizital-subheadings-track {
+  margin-top: 0px;
+}
+.about-us-track-img {
+  width: 55px;
+  height: 55px;
+  margin-right: 15px;
+}
+.about-us-dizital-sub-des {
+  text-align: left;
+  color: #727272;
+  font-size: 15px;
+  height: 100%;
+  line-height: 21px;
+  font-family: 'Raleway', sans-serif;
+}
+.about-us-why-choose-us-icons {
+  font-size: 55px;
+  color: #129cf3;
+  margin-right: 15px;
+}
